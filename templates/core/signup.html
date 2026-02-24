@@ -1,5 +1,85 @@
+ {% extends "base.html" %}
+
+{% comment %}{% block title %}Sign Up - Vacation Rental{% endblock %}
+
+{% block content %}
+
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Sign Up</button>
 </form>
+{% endblock %} {% endcomment %}
+
+
+{% block title %}Sign Up - Vacation Rental{% endblock %}
+
+
+{% block content %}
+<div class="split-screen-wrapper">
+    <!-- Image Side -->
+    <div class="visual-side">
+        <div class="visual-overlay"></div>
+        <div class="visual-text">
+            <h1>Experience the <br>Art of Luxury.</h1>
+            <p>Join our exclusive community of travelers.</p>
+        </div>
+    </div>
+
+    <!-- Form Side -->
+    <div class="form-side">
+        <div class="form-content">
+            <div class="header-group">
+                <h2>Create Account</h2>
+                <p>Start your journey with Vacation Rental today.</p>
+            </div>
+
+            {% comment %} <button class="social-btn">
+                <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="G">
+                Sign up with Google
+            </button>
+
+            <div class="form-divider"><span>OR</span></div> {% endcomment %}
+
+            <form method="POST">
+                {% csrf_token %}
+                <div class="custom-input-group">
+                    <label for="id_email">Email Address</label>
+                    {{form.email}}
+                </div>
+                
+                <div class="custom-input-group">
+                    <label for="id_role">Choose Your Role</label>
+                    {{form.role}}
+                </div>
+
+                <div class="custom-input-group">
+                    <label for="id_password1">Enter Password</label>
+                    {{form.password1}}
+                </div>
+
+                <div class="custom-input-group">
+                    <label for="id_password2">Confirm Password</label>
+                    {{form.password2}}
+                </div>
+
+
+                <div class="terms-flex">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">I agree to the <a href="#">Terms of Service</a></label>
+                </div>
+
+                 {% if form.errors %}
+                    <div class="error-box">
+                        {{ form.errors }}
+                    </div>
+                {% endif %}
+
+                <button type="submit" class="submit-auth-btn">Get Started</button>
+            </form>
+
+            {% comment %} <p class="switch-auth">Already a member? <a href="#">Log In</a></p> {% endcomment %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

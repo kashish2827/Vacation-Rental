@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% comment %} <title>{% block title %}Vacation Rental - Luxury Resort{% endblock %}</title> {% endcomment %}
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS link (Ensure your static settings are configured in settings.py) -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+
+     <header>
+        {% include "usernavbar.html" %}
+    </header> 
+
+    {% comment %} <nav style="padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; position: absolute; width: 100%; z-index: 10;">
+        <a href="/" style="text-decoration: none; font-family: 'Playfair Display'; font-weight: 700; color: #222; font-size: 24px;">Vacation<span style="color: #bfa37e;">Rental</span></a>
+    </nav> {% endcomment %}
+
+    <!-- Main Content Area -->
+    <main>
+        {% block content %}
+        <!-- Page specific content goes here -->
+        {% endblock %}
+    </main>
+
+    {% include "footer.html" %} 
+
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
