@@ -247,3 +247,184 @@ h1, h2, h3, .logo {
     .visual-side { display: none; }
     .form-side { flex: 1; }
 }
+
+/* --- Login Page Specific Classes --- */
+
+/* --- Login Page Specific UI --- */
+/* ============================================================
+   LOGIN PAGE SPECIFIC STYLING (DestinFlow Luxury Theme)
+   ============================================================ */
+
+/* 1. Page Wrapper & Background Image */
+.login-wrapper {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Luxury resort background matching the template */
+    background: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* 2. Background Dark Blur Overlay */
+.login-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.55); /* Darkens the image for readability */
+    backdrop-filter: blur(8px); /* Modern blur effect seen in the reference */
+}
+
+/* 3. The Login Card */
+.login-card {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    max-width: 420px;
+    background: #ffffff;
+    padding: 50px 40px;
+    border-radius: 8px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.login-header h2 {
+    font-family: 'Playfair Display', serif; /* Luxury Serif Font */
+    font-size: 32px;
+    color: #222;
+    margin-bottom: 8px;
+}
+
+.login-header p {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 40px;
+}
+
+/* 4. Floating Label Input Groups */
+.login-input-box {
+    position: relative;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.login-input-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #333;
+    border: none;
+    border-bottom: 2px solid #ddd; /* Minimalist bottom border */
+    outline: none;
+    background: transparent;
+    transition: 0.3s;
+}
+
+.login-input-box label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    pointer-events: none;
+    color: #999;
+    transition: 0.3s ease-all;
+    font-size: 14px;
+}
+
+/* Logic: When user clicks or types, label moves up and shrinks */
+.login-input-box input:focus ~ label,
+.login-input-box input:valid ~ label {
+    top: -18px;
+    font-size: 12px;
+    color: #bfa37e; /* DestinFlow Gold Primary Color */
+    font-weight: 600;
+}
+
+/* Animated bottom border on focus */
+.login-input-box .focus-border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #bfa37e;
+    transition: 0.4s;
+}
+
+.login-input-box input:focus ~ .focus-border {
+    width: 100%;
+}
+
+/* 5. Links & Remember Me */
+.login-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+    font-size: 13px;
+}
+
+.remember-me { 
+    color: #666; 
+    cursor: pointer; 
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.forgot-pass { 
+    color: #bfa37e; 
+    text-decoration: none; 
+    font-weight: 500; 
+}
+
+.forgot-pass:hover {
+    text-decoration: underline;
+}
+
+/* 6. Action Button */
+.btn-login {
+    width: 100%;
+    padding: 16px;
+    background: #222222; /* Dark theme button */
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn-login:hover {
+    background: #bfa37e; /* Swaps to gold on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(191, 163, 126, 0.4);
+}
+
+/* 7. Footer Toggle */
+.login-footer {
+    margin-top: 35px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    font-size: 14px;
+    color: #777;
+}
+
+.login-footer a {
+    color: #bfa37e;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* 8. Mobile Responsiveness */
+@media (max-width: 480px) {
+    .login-card {
+        padding: 40px 25px;
+    }
+    .login-header h2 {
+        font-size: 26px;
+    }
+}

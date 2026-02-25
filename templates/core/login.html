@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Login | Vacation Rental {% endblock %}
+
+{% block content %}
+<section class="login-wrapper">
+    <div class="login-overlay"></div>
+    
+    <div class="login-card">
+        <div class="login-header">
+            <h2>Welcome Back</h2>
+            <p>Please enter your details to Log in</p>
+        </div>
+
+        <form method="POST">
+            {% csrf_token %}
+            
+            <div class="login-input-box">
+                <label for="id_email">Email Address</label>
+                {{form.email}}
+            </div>
+
+            <div class="login-input-box">
+                <label for="id_password">Password</label>
+                {{form.password}}
+            </div>
+
+            <div class="login-options">
+                <label class="remember-me">
+                    <input type="checkbox"> Remember me
+                </label>
+                <a href="#" class="forgot-pass">Forgot Password?</a>
+            </div>
+                {% if form.errors %}
+                    <div class="error-box">
+                        {{ form.errors }}
+                    </div>
+                {% endif %}
+            <button type="submit" class="btn-login">Log In</button>
+        </form>
+
+        <div class="login-footer">
+            <p>Don't have an account? <a href="{% url "signup" %}">Sign Up Now</a></p>
+        </div>
+    </div>
+</section>
+{% endblock %}
