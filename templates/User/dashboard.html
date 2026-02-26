@@ -1,1 +1,104 @@
-<h1> User Dashboard </h1>
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+    {% include "navbar/usernavbar.html" %}
+
+    {% block content %}
+<!-- 1. Hero Section -->
+<section class="home-hero">
+    <div class="home-hero-content">
+        <span class="hero-tag">Welcome to Luxury</span>
+        <h1>Experience Luxury In <br> Every Detail</h1>
+        <p>Nestled among stunning panoramas and calm seas, our resort provides a perfect environment for visitors seeking a peaceful escape.</p>
+        <div class="hero-actions">
+            <a href="#" class="btn-primary">Explore Rooms</a>
+            <a href="#" class="btn-outline">Watch Video</a>
+        </div>
+    </div>
+</section>
+
+<!-- 2. Services / Features -->
+<section class="section-padding">
+    <div class="container text-center">
+        <div class="section-header">
+            <span class="sub-title">What We Offer</span>
+            <h2>Exclusive Resort Services</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="icon">🏊‍♂️</i>
+                <h3>Swimming Pool</h3>
+                <p>Enjoy our infinity pool with a breathtaking view of the ocean.</p>
+            </div>
+            <div class="service-card">
+                <i class="icon">💆‍♀️</i>
+                <h3>Spa & Wellness</h3>
+                <p>Rejuvenate your mind and body with our professional spa treatments.</p>
+            </div>
+            <div class="service-card">
+                <i class="icon">🍽️</i>
+                <h3>Fine Dining</h3>
+                <p>Experience world-class cuisine prepared by award-winning chefs.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 3. Rooms Showcase -->
+<section class="section-padding bg-cream">
+    <div class="container">
+        <div class="section-header text-center">
+            <span class="sub-title">Our Accommodations</span>
+            <h2>Luxury Rooms & Suites</h2>
+        </div>
+        <div class="rooms-grid">
+            <!-- Room Card 1 -->
+            <div class="room-item">
+                <div class="room-img" style="background-image: url('https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800');"></div>
+                <div class="room-details">
+                    <span class="room-price">From $320 / Night</span>
+                    <h3>Premium King Room</h3>
+                    <p>Spacious rooms with a private balcony and ocean view.</p>
+                    <a href="#" class="text-link">Book Now →</a>
+                </div>
+            </div>
+            <!-- Room Card 2 -->
+            <div class="room-item">
+                <div class="room-img" style="background-image: url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800');"></div>
+                <div class="room-details">
+                    <span class="room-price">From $450 / Night</span>
+                    <h3>Luxury Villa Suite</h3>
+                    <p>Ultimate privacy with a dedicated butler and private pool.</p>
+                    <a href="#" class="text-link">Book Now →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 4. Testimonials -->
+<section class="section-padding">
+    <div class="container text-center">
+        <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="quote">"The best experience we ever had. We were able to rest thanks to the serene surroundings and incredible staff. We will definitely return!"</p>
+            <div class="customer-info">
+                <img src="https://i.pravatar.cc/60?img=5" alt="Customer">
+                <div>
+                    <strong>Mary Grace</strong>
+                    <span>New York, NY</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    {% endblock %}
+{% include "footer/footer.html" %}

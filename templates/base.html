@@ -16,9 +16,15 @@
 </head>
 <body>
 
-     <header>
-        {% include "navbar/usernavbar.html" %}
-    </header> 
+     
+        {% if request.user.role == 'host' %}
+            {% include "navbar/hostnavbar.html" %}
+        {% elif request.user.role == 'user' %}
+            {% include "navbar/usernavbar.html" %}
+        {% else %}
+            {% include "navbar/homenavbar.html" %}
+        {% endif %}
+     
 
     {% comment %} <nav style="padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; position: absolute; width: 100%; z-index: 10;">
         <a href="/" style="text-decoration: none; font-family: 'Playfair Display'; font-weight: 700; color: #222; font-size: 24px;">Vacation<span style="color: #bfa37e;">Rental</span></a>

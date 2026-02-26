@@ -4,16 +4,23 @@
             <a href="{% url "home" %}" class="logo">Vacation<span>Rental</span></a>
             <ul class="nav-links">
                 <li><a href="/">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Property</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Blog</a></li>
+                <li><a href="#">Wishlist</a></li>
+                <li><a href="#">My Booking</a></li>
+                <li><a href="#">Local Experiences</a></li>
+                <li><a href="#">Notification</a></li>
+                {% comment %} <li><a href="#">Services</a></li> {% endcomment %}
+                {% comment %} <li><a href="#">Booking Details</a></li> {% endcomment %}
             </ul>
-            <div class="nav-actions">
+            {% comment %} <div class="nav-actions">
                 <a href="{% url 'login' %}" class="btn-primary">Book Now</a>
-            </div>
-            <div class="nav-actions">
-                <a href="{% url 'signup' %}" class="btn-primary">Sign Up</a>
+            </div> {% endcomment %}
+            <div class="profile-dropdown">
+            <button class="profile-btn">👤</button>
+                <div class="dropdown-menu">
+                    <a href="#">My Profile</a>
+                    <a href="#">Booking History</a>
+                    <a href="#">Logout</a>
+                </div>
             </div>
         </div>
     </nav>

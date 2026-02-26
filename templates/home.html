@@ -1,6 +1,658 @@
-{% extends "base.html" %}
-{% block content %}
-    <section class="hero">
-        <h1>The Vacation Rental Hero Content Goes Here</h1>
-    </section>
-{% endblock %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DestinFlow - Perfect Travel Partner</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     NAV
+═══════════════════════════════════════ -->
+<nav>
+  <a href="#" class="logo">Vacation<span>Rental</span></a>
+
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#about-strip">About</a></li>
+    <li><a href="#rooms">Property</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+  </ul>
+
+  <div class="nav-cta">
+    <a href="#rooms" class="btn btn-outline">Browse Property</a>
+    <a href="#rooms" class="btn btn-dark">Book Now <span class="arrow">↗</span></a>
+    <a href="{% url "signup" %}" class="btn btn-dark">Sign Up </a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     HERO
+═══════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-tag">
+      <span class="star-icon">✦</span> Perfect Travel Partner — With Experience
+    </div>
+
+    <h1 class="hero-title">
+      Explore<br>With <em>Experts</em>
+    </h1>
+
+    <p class="hero-sub">
+      DestinFlow — each category caters to distinct traveller tastes and interests.
+      Beach resorts, mountain retreats, and everything in between.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#about-strip" class="btn btn-dark">Explore With Us <span class="arrow">↗</span></a>
+      <a href="#rooms" class="btn btn-outline">View All Rooms</a>
+    </div>
+
+    <!-- Booking Widget -->
+    <div class="booking-widget">
+      <div class="booking-field">
+        <label>Check In</label>
+        <input type="date">
+      </div>
+      <div class="booking-field">
+        <label>Check Out</label>
+        <input type="date">
+      </div>
+      <div class="booking-field">
+        <label>Adults</label>
+        <select>
+          <option>1 Adult</option>
+          <option selected>2 Adults</option>
+          <option>3 Adults</option>
+          <option>4 Adults</option>
+        </select>
+      </div>
+      <div class="booking-field">
+        <label>Children</label>
+        <select>
+          <option selected>0 Children</option>
+          <option>1 Child</option>
+          <option>2 Children</option>
+        </select>
+      </div>
+      <a href="#rooms" class="btn btn-gold" style="white-space:nowrap">Check Availability</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <img
+      class="hero-img"
+      src="https://cdn.prod.website-files.com/646c59363e244b8b05ff0d1c/648162191ed92e6c47ebfb91_lake-room-image.jpg"
+      alt="Luxury resort with lake view"
+    >
+    <div class="hero-overlay"></div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-number">234+</div>
+        <div class="stat-label">Adults Hosted</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">98%</div>
+        <div class="stat-label">Satisfaction Rate</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     ABOUT STRIP
+═══════════════════════════════════════ -->
+<div id="about-strip">
+  <p class="about-strip-text">
+    <strong>More About DestinFlow →</strong>&nbsp;
+    Our resort, nestled in the centre of stunning nature, offers a refuge of tranquility
+    and comfort intended to elevate your stay to new heights.
+  </p>
+  <a href="#rooms" class="btn btn-gold">Discover Rooms <span class="arrow">↗</span></a>
+</div>
+
+<!-- ═══════════════════════════════════════
+     ROOMS
+═══════════════════════════════════════ -->
+<section id="rooms">
+  <div class="rooms-header">
+    <div>
+      <div class="section-tag">✦ Our Accommodations</div>
+      <h2 class="section-title">Exquisite Resort Rooms<br>for a Luxurious Retreat</h2>
+    </div>
+    <div style="display:flex; flex-direction:column; align-items:flex-end; gap:16px">
+      <div class="rooms-filter">
+        <button class="filter-btn active">Latest</button>
+        <button class="filter-btn">Popular</button>
+        <button class="filter-btn">Featured</button>
+      </div>
+      <a href="#rooms" class="btn btn-dark">Browse All Rooms <span class="arrow">↗</span></a>
+    </div>
+  </div>
+
+  <div class="rooms-scroll-track">
+    <div class="rooms-grid">
+
+      <!-- Room 1: Double -->
+      <div class="room-card">
+        <div class="room-img-wrap">
+          <img src="https://cdn.prod.website-files.com/646dc5789befdc07ef4ed24d/646dc5c5024f9988ecd6e02d_room-image-1.jpg" alt="Double Room">
+          <div class="room-badges">
+            <span class="badge">60m²</span>
+            <span class="badge">4 adults</span>
+            <span class="badge">Ocean View</span>
+          </div>
+        </div>
+        <div class="room-body">
+          <h3>Double Room</h3>
+          <p class="room-desc">A comfortable, roomy refuge for couples, friends, or anybody looking for a tranquil escape.</p>
+          <div class="room-footer">
+            <div class="room-price">$320 <span>USD / night</span></div>
+            <a href="#" class="btn btn-dark" style="padding:9px 18px; font-size:0.82rem">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Room 2: Classic -->
+      <div class="room-card">
+        <div class="room-img-wrap">
+          <img src="https://cdn.prod.website-files.com/646dc5789befdc07ef4ed24d/646dc67d08ab190080a9e53c_room-image-4.jpg" alt="Classic Room">
+          <div class="room-badges">
+            <span class="badge">35m²</span>
+            <span class="badge">2 adults</span>
+            <span class="badge">Sunset View</span>
+          </div>
+        </div>
+        <div class="room-body">
+          <h3>Classic Room</h3>
+          <p class="room-desc">Classic Rooms provide a delightful refuge for those seeking a combination of luxury & leisure.</p>
+          <div class="room-footer">
+            <div class="room-price">$320 <span>USD / night</span></div>
+            <a href="#" class="btn btn-dark" style="padding:9px 18px; font-size:0.82rem">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Room 3: Premium -->
+      <div class="room-card">
+        <div class="room-img-wrap">
+          <img src="https://cdn.prod.website-files.com/646dc5789befdc07ef4ed24d/646dc63fc3a40938a4449990_room-image-3.jpg" alt="Premium Room">
+          <div class="room-badges">
+            <span class="badge">44m²</span>
+            <span class="badge">4 adults</span>
+            <span class="badge">Garden View</span>
+          </div>
+        </div>
+        <div class="room-body">
+          <h3>Premium Room</h3>
+          <p class="room-desc">Premium Rooms, created with discriminating travelers in mind, are a tribute to sophisticated living.</p>
+          <div class="room-footer">
+            <div class="room-price">$320 <span>USD / night</span></div>
+            <a href="#" class="btn btn-dark" style="padding:9px 18px; font-size:0.82rem">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Room 4: Luxury -->
+      <div class="room-card">
+        <div class="room-img-wrap">
+          <img src="https://cdn.prod.website-files.com/646dc5789befdc07ef4ed24d/646dc60128c11bc7c6e07bfd_room-image-2.jpg" alt="Luxury Room">
+          <div class="room-badges">
+            <span class="badge">55m²</span>
+            <span class="badge">King Bed</span>
+            <span class="badge">Beach View</span>
+          </div>
+        </div>
+        <div class="room-body">
+          <h3>Luxury Room</h3>
+          <p class="room-desc">Luxury Rooms are precisely built to create a refuge of richness & comfort in the midst of paradise.</p>
+          <div class="room-footer">
+            <div class="room-price">$320 <span>USD / night</span></div>
+            <a href="#" class="btn btn-dark" style="padding:9px 18px; font-size:0.82rem">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Room 5: Single -->
+      <div class="room-card">
+        <div class="room-img-wrap">
+          <img src="https://cdn.prod.website-files.com/646dc5789befdc07ef4ed24d/646dc6e1d8a3d092c086f6c6_room-image-6.jpg" alt="Single Room">
+          <div class="room-badges">
+            <span class="badge">30m²</span>
+            <span class="badge">City View</span>
+          </div>
+        </div>
+        <div class="room-body">
+          <h3>Single Room</h3>
+          <p class="room-desc">Single Rooms provide a secluded and serene haven for solo travellers seeking tranquility & renewal.</p>
+          <div class="room-footer">
+            <div class="room-price">$320 <span>USD / night</span></div>
+            <a href="#" class="btn btn-dark" style="padding:9px 18px; font-size:0.82rem">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Room 6: Budget -->
+      <div class="room-card">
+        <div class="room-img-wrap">
+          <img src="https://cdn.prod.website-files.com/646dc5789befdc07ef4ed24d/646dc6b02bb197206726176d_room-image-5.jpg" alt="Budget Room">
+          <div class="room-badges">
+            <span class="badge">65m²</span>
+            <span class="badge">Lake View</span>
+          </div>
+        </div>
+        <div class="room-body">
+          <h3>Budget Room</h3>
+          <p class="room-desc">Relax on comfy beds & take advantage of contemporary comforts tailored to meet your travel requirements.</p>
+          <div class="room-footer">
+            <div class="room-price">$320 <span>USD / night</span></div>
+            <a href="#" class="btn btn-dark" style="padding:9px 18px; font-size:0.82rem">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.rooms-grid -->
+  </div><!-- /.rooms-scroll-track -->
+</section>
+
+<!-- ═══════════════════════════════════════
+     SUITES MARQUEE
+═══════════════════════════════════════ -->
+<section id="suites">
+  <h2>Explore Our Unique <em style="font-style:italic; color:var(--gold)">Suite</em> Categories</h2>
+
+  <div class="marquee-track">
+    <!-- Set 1 -->
+    <div class="suite-card">
+      <img src="https://cdn.prod.website-files.com/646c59363e244b8b05ff0d1c/64b282be00ba11f2a03981a7_suite-image-1.jpg" alt="Meditation Room">
+      <div class="suite-overlay"><h3>Meditation Room</h3></div>
+    </div>
+    <div class="suite-card">
+      <img src="https://cdn.prod.website-files.com/646c59363e244b8b05ff0d1c/646dd6f5a70a1bf8dcbff9cf_suite-image-2.jpg" alt="Deluxe Suite">
+      <div class="suite-overlay"><h3>Deluxe Suite</h3></div>
+    </div>
+    <div class="suite-card">
+      <img src="https://cdn.prod.website-files.com/646c59363e244b8b05ff0d1c/646dd700d6e89f748a38041c_suite-image-3.jpg" alt="View Suite">
+      <div class="suite-overlay"><h3>The View Suite</h3></div>
+    </div>
+    <div class="suite-card">
+      <img src="https://cdn.prod.website-files.com/646c59363e244b8b05ff0d1c/64c201f30b43fb0bc61030d8_suite-image-4.jpg" alt="Multi-Purpose Room">
+      <div class="suite-overlay"><h3>Multi-Purpose Room</h3></div>
+    </div>
+    <div class="suite-card">
+      <img src="https://cdn.prod.website-files.com/646c59363e244b8b05ff0d1c/64c20201f28c42e30c151c58_suite-image-5.jpg" alt="Traditional">
+      <div class="suite-overlay"><h3>Traditional</h3></div>
+    </div>
+    <div class="suite-card">
+      <img src="https://cdn.prod.website-files.com/646c59363e244b8b05ff0d1c/64c2020e182d03e45930b849_suite-image-6.jpg" alt="Nature-Inspired">
+      <div class="suite-overlay"><h3>Nature-Inspired</h3></div>
+    </div>
+    <!-- Set 2 — duplicate for seamless infinite loop -->
+    <div class="suite-card">
+      <img src="https://cdn.prod.website-files.com/646c59363e244b8b05ff0d1c/64b282be00ba11f2a03981a7_suite-image-1.jpg" alt="Meditation Room">
+      <div class="suite-overlay"><h3>Meditation Room</h3></div>
+    </div>
+    <div class="suite-card">
+      <img src="https://cdn.prod.website-files.com/646c59363e244b8b05ff0d1c/646dd6f5a70a1bf8dcbff9cf_suite-image-2.jpg" alt="Deluxe Suite">
+      <div class="suite-overlay"><h3>Deluxe Suite</h3></div>
+    </div>
+    <div class="suite-card">
+      <img src="https://cdn.prod.website-files.com/646c59363e244b8b05ff0d1c/646dd700d6e89f748a38041c_suite-image-3.jpg" alt="View Suite">
+      <div class="suite-overlay"><h3>The View Suite</h3></div>
+    </div>
+    <div class="suite-card">
+      <img src="https://cdn.prod.website-files.com/646c59363e244b8b05ff0d1c/64c201f30b43fb0bc61030d8_suite-image-4.jpg" alt="Multi-Purpose Room">
+      <div class="suite-overlay"><h3>Multi-Purpose Room</h3></div>
+    </div>
+    <div class="suite-card">
+      <img src="https://cdn.prod.website-files.com/646c59363e244b8b05ff0d1c/64c20201f28c42e30c151c58_suite-image-5.jpg" alt="Traditional">
+      <div class="suite-overlay"><h3>Traditional</h3></div>
+    </div>
+    <div class="suite-card">
+      <img src="https://cdn.prod.website-files.com/646c59363e244b8b05ff0d1c/64c2020e182d03e45930b849_suite-image-6.jpg" alt="Nature-Inspired">
+      <div class="suite-overlay"><h3>Nature-Inspired</h3></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     RESTAURANT
+═══════════════════════════════════════ -->
+<section id="restaurant">
+  <div class="restaurant-img">
+    <img src="https://cdn.prod.website-files.com/646c59363e244b8b05ff0d1c/647ef5cf8ea90863fdb94826_restaurant-image.jpg" alt="Gourmet Restaurant">
+  </div>
+
+  <div class="restaurant-content">
+    <div class="section-tag">✦ Dining Experience</div>
+    <h2>A Gourmet Restaurant at Every One of Our Resorts</h2>
+    <p>
+      Prepare to go on a gastronomic adventure filled with tantalizing flavors and culinary
+      pleasures that will captivate your taste buds. Within the confines of our resorts, you'll
+      enjoy a dining experience that is the pinnacle of luxury. Our gourmet restaurants highlight
+      the finest ingredients and craftsmanship.
+    </p>
+    <a href="#rooms" class="btn btn-dark" style="margin-top:20px">View All Resorts <span class="arrow">↗</span></a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SERVICES
+═══════════════════════════════════════ -->
+<section id="services">
+  <div class="section-tag" style="color:var(--gold)">✦ Amenities</div>
+  <h2 class="section-title">Services &amp; Facilities at<br>the Grand Hotel</h2>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🌿</div>
+      <h3>Indoor Plan</h3>
+      <p>Captivating indoor spaces that bring nature indoors, creating a serene atmosphere for complete relaxation.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🧖</div>
+      <h3>Spa &amp; Wellness</h3>
+      <p>A tranquil haven that revitalizes your mind, body, and soul with world-class treatments and therapies.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🍽️</div>
+      <h3>Restaurant</h3>
+      <p>Every moment is a celebration of cuisine, from breakfast to candlelit dinners with the finest local produce.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📶</div>
+      <h3>Free WiFi</h3>
+      <p>Stay connected with complimentary high-speed WiFi — a consistent promise throughout your entire stay.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     TESTIMONIALS
+═══════════════════════════════════════ -->
+<section id="testimonials">
+  <div class="testimonials-header">
+    <div>
+      <div class="section-tag">✦ Guest Reviews</div>
+      <h2 class="section-title">Our Clients Value<br>the Grand Hotel</h2>
+    </div>
+    <a href="#" class="btn btn-dark">About Us <span class="arrow">↗</span></a>
+  </div>
+
+  <div class="testimonials-grid">
+
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <div class="testimonial-quote">"The best experience we ever had"</div>
+      <p class="testimonial-text">We had a fantastic time at the resort. The surroundings and ambiance were perfect for relaxation. We had a fantastic time.</p>
+      <div class="testimonial-author">
+        <img src="https://cdn.prod.website-files.com/646c59363e244b8b05ff0d1c/646df3db3ce3ea4eea5e994a_testimonial-image-1.jpg" alt="Mary Grace" class="testimonial-avatar">
+        <div>
+          <div class="testimonial-name">Mary Grace</div>
+          <div class="testimonial-location">New York, NY</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <div class="testimonial-quote">"The best weekend of my life"</div>
+      <p class="testimonial-text">The staff was always eager to assist us. The dinner was delicious and the chef ensured our dietary requirements were met.</p>
+      <div class="testimonial-author">
+        <img src="https://cdn.prod.website-files.com/646c59363e244b8b05ff0d1c/646df5d108ab190080d39070_testimonial-image-2.jpg" alt="Emma Rose" class="testimonial-avatar">
+        <div>
+          <div class="testimonial-name">Emma Rose</div>
+          <div class="testimonial-location">Washington DC</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <div class="testimonial-quote">"I love the hotel and view"</div>
+      <p class="testimonial-text">Excellent service and spa. Beautiful structure, soothing flora, and a tranquil lake. We shall hopefully return.</p>
+      <div class="testimonial-author">
+        <img src="https://cdn.prod.website-files.com/646c59363e244b8b05ff0d1c/646df5d83625840e9faa4245_testimonial-image-3.jpg" alt="Sophia Jane" class="testimonial-avatar">
+        <div>
+          <div class="testimonial-name">Sophia Jane</div>
+          <div class="testimonial-location">Los Angeles, CA</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <div class="testimonial-quote">"Definitely worth every cent"</div>
+      <p class="testimonial-text">Excellent property, excellent personnel — do not miss it at any cost. Definitely worth every penny spent.</p>
+      <div class="testimonial-author">
+        <img src="https://cdn.prod.website-files.com/646c59363e244b8b05ff0d1c/64c206b9914204c638b6944f_testimonial-image-4.jpg" alt="Lily Grace" class="testimonial-avatar">
+        <div>
+          <div class="testimonial-name">Lily Grace</div>
+          <div class="testimonial-location">New York, NY</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     MARQUEE TEXT DIVIDER
+═══════════════════════════════════════ -->
+<div id="marquee-section">
+  <div class="text-marquee">
+    <span>Enjoy today in our natural luxury resorts</span>
+    <span class="star">✦</span>
+    <span>Enjoy today in our natural luxury resorts</span>
+    <span class="star">✦</span>
+    <span>Enjoy today in our natural luxury resorts</span>
+    <span class="star">✦</span>
+    <span>Enjoy today in our natural luxury resorts</span>
+    <span class="star">✦</span>
+    <span>Enjoy today in our natural luxury resorts</span>
+    <span class="star">✦</span>
+    <span>Enjoy today in our natural luxury resorts</span>
+    <span class="star">✦</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     LAKESIDE
+═══════════════════════════════════════ -->
+<section id="lakeside">
+  <div class="lakeside-content">
+    <div class="section-tag">✦ Featured Property</div>
+    <h2>Best Lakeside<br>Resorts</h2>
+    <p>
+      Where nature's beauty and exquisite comfort meet to offer an amazing vacation. Our resort,
+      nestled among stunning panoramas and calm waters, provides a perfect environment for visitors
+      seeking a peaceful escape.
+    </p>
+
+    <div class="room-list">
+
+      <div class="room-list-item">
+        <div class="room-list-item-left">
+          <h4>Double Room</h4>
+          <p>A roomy refuge for couples &amp; friends</p>
+        </div>
+        <div class="room-list-price">
+          <div class="from">from</div>
+          <div class="amount">$320 / night</div>
+        </div>
+        <a href="#" class="btn btn-dark" style="padding:9px 18px; font-size:0.82rem">Book Now</a>
+      </div>
+
+      <div class="room-list-item">
+        <div class="room-list-item-left">
+          <h4>Premium Room</h4>
+          <p>A tribute to sophisticated living</p>
+        </div>
+        <div class="room-list-price">
+          <div class="from">from</div>
+          <div class="amount">$320 / night</div>
+        </div>
+        <a href="#" class="btn btn-dark" style="padding:9px 18px; font-size:0.82rem">Book Now</a>
+      </div>
+
+      <div class="room-list-item">
+        <div class="room-list-item-left">
+          <h4>Single Room</h4>
+          <p>Haven for solo travellers</p>
+        </div>
+        <div class="room-list-price">
+          <div class="from">from</div>
+          <div class="amount">$320 / night</div>
+        </div>
+        <a href="#" class="btn btn-dark" style="padding:9px 18px; font-size:0.82rem">Book Now</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="lakeside-img">
+    <img src="https://cdn.prod.website-files.com/646c59363e244b8b05ff0d1c/648162191ed92e6c47ebfb91_lake-room-image.jpg" alt="Lakeside Resort">
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     GALLERY
+═══════════════════════════════════════ -->
+<section id="gallery">
+  <div class="gallery-header">
+    <div class="section-tag">✦ Photo Gallery</div>
+    <h2 class="section-title">Explore Our Gallery</h2>
+  </div>
+
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <img src="https://cdn.prod.website-files.com/646c59363e244b8b05ff0d1c/646df8e011883642cf26d07c_gallery-image-1.jpg" alt="Gallery 1">
+    </div>
+    <div class="gallery-item">
+      <img src="https://cdn.prod.website-files.com/646c59363e244b8b05ff0d1c/646df9351841f4593684bfbe_gallery-image-2.jpg" alt="Gallery 2">
+    </div>
+    <div class="gallery-item">
+      <img src="https://cdn.prod.website-files.com/646c59363e244b8b05ff0d1c/646df93e4863c32f4bec0598_gallery-image-3.jpg" alt="Gallery 3">
+    </div>
+    <div class="gallery-item">
+      <img src="https://cdn.prod.website-files.com/646c59363e244b8b05ff0d1c/646df94592c240b01b16002b_gallery-image-4.jpg" alt="Gallery 4">
+    </div>
+    <div class="gallery-item">
+      <img src="https://cdn.prod.website-files.com/646c59363e244b8b05ff0d1c/646df95908ab190080d6589e_gallery-image-5.jpg" alt="Gallery 5">
+    </div>
+  </div>
+
+  <div class="gallery-cta">
+    <a href="#rooms" class="btn btn-dark">Explore Rooms <span class="arrow">↗</span></a>
+    <a href="#services" class="btn btn-outline">Our Services</a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════ -->
+<footer>
+  <div class="footer-top">
+
+    <!-- Brand -->
+    <div class="footer-brand">
+      <a href="#" class="logo">Destin<span>Flow</span></a>
+      <p>We provide travelers with a variety of amenities and services tailored to meet their every need, assuring a comfortable and enjoyable stay.</p>
+      <div class="footer-contact-item">📞 <a href="tel:+12345678901">23 (4)56 7890 12</a></div>
+      <div class="footer-contact-item">✉️ <a href="mailto:info@destinflow.com">info@destinflow.com</a></div>
+      <div class="footer-contact-item">📍 5201 Elm Street, Cedar Lane, USA</div>
+    </div>
+
+    <!-- Pages -->
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <ul class="footer-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Rooms</a></li>
+        <li><a href="#">Services</a></li>
+      </ul>
+    </div>
+
+    <!-- Utility Pages -->
+    <div class="footer-col">
+      <h4>Utility Pages</h4>
+      <ul class="footer-links">
+        <li><a href="#">Style Guide</a></li>
+        <li><a href="#">404 Page</a></li>
+        <li><a href="#">Protected</a></li>
+        <li><a href="#">Licenses</a></li>
+        <li><a href="#">Changelog</a></li>
+      </ul>
+    </div>
+
+    <!-- Newsletter + Instagram -->
+    <div class="footer-col">
+      <h4>Subscribe to our newsletter</h4>
+      <div class="footer-newsletter">
+        <input type="email" placeholder="Enter your email address">
+        <a href="#" class="btn btn-gold" style="width:100%; justify-content:center">
+          Subscribe <span>↗</span>
+        </a>
+      </div>
+
+      <h4 style="margin-top:28px">Follow on Instagram</h4>
+      <div class="footer-insta">
+        <div class="footer-insta-img"><img src="https://cdn.prod.website-files.com/646c59363e244b8b05ff0d1c/646da516700064e1c0374b0b_footer-image-1.jpg" alt="Instagram 1"></div>
+        <div class="footer-insta-img"><img src="https://cdn.prod.website-files.com/646c59363e244b8b05ff0d1c/646da5493625840e9f5c1a8f_footer-image-2.jpg" alt="Instagram 2"></div>
+        <div class="footer-insta-img"><img src="https://cdn.prod.website-files.com/646c59363e244b8b05ff0d1c/646da552b0ba0c6aee4ee804_footer-image-3.jpg" alt="Instagram 3"></div>
+        <div class="footer-insta-img"><img src="https://cdn.prod.website-files.com/646c59363e244b8b05ff0d1c/646da559b0ba0c6aee4eec49_footer-image-4.jpg" alt="Instagram 4"></div>
+        <div class="footer-insta-img"><img src="https://cdn.prod.website-files.com/646c59363e244b8b05ff0d1c/646da561e15fab30023bed74_footer-image-5.jpg" alt="Instagram 5"></div>
+        <div class="footer-insta-img"><img src="https://cdn.prod.website-files.com/646c59363e244b8b05ff0d1c/646da56e3625840e9f5c3741_footer-image-6.jpg" alt="Instagram 6"></div>
+      </div>
+    </div>
+
+  </div><!-- /.footer-top -->
+
+  <div class="footer-bottom">
+    <p>Copyright © DestinFlow | Designed By VictorFlow — Recreated as HTML</p>
+    <div class="footer-socials">
+      <a href="https://instagram.com" class="social-link" target="_blank">IG</a>
+      <a href="https://facebook.com" class="social-link" target="_blank">FB</a>
+      <a href="https://twitter.com" class="social-link" target="_blank">𝕏</a>
+      <a href="https://pinterest.com" class="social-link" target="_blank">PT</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════
+     JS
+═══════════════════════════════════════ -->
+<script>
+  // Filter buttons
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
