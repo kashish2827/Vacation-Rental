@@ -1,6 +1,12 @@
-{% extends "base.html" %}
-
-{% block title %}Login | Vacation Rental {% endblock %}
+{% comment %} {% extends "base.html" %} {% endcomment %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up - Vacation Rental</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+{% comment %} {% block title %}Login | Vacation Rental {% endblock %} {% endcomment %}
 
 {% block content %}
 <section class="login-wrapper">

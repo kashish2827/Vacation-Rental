@@ -1,0 +1,40 @@
+<!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="{% url "home" %}" class="logo">Vacation<span>Rental</span></a>
+            <ul class="nav-links">
+                <li><a href="/">Dashboard</a></li>
+                <li><a href="#">Add Property</a></li>
+                <li><a href="#">Calendar</a></li>
+                <li><a href="#">Local Experiences</a></li>
+                <li><a href="#">Notification</a></li>
+                {% comment %} <li><a href="#">Services</a></li> {% endcomment %}
+                {% comment %} <li><a href="#">Booking Details</a></li> {% endcomment %}
+            </ul>
+            {% comment %} <div class="nav-actions">
+                <a href="{% url 'login' %}" class="btn-primary">Book Now</a>
+            </div> {% endcomment %}
+            <div class="profile-dropdown">
+            <button class="profile-btn">👤</button>
+                <div class="dropdown-menu">
+                    <a href="#">My Profile</a>
+                    <a href="#">Booking History</a>
+                    <a href="#">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+{% comment %} 
+    Dashboard
+    my property
+    booking
+    calendar
+    pricing
+     <div class="profile-dropdown">
+            <button class="profile-btn">👤</button>
+            <div class="dropdown-menu">
+                <a href="#">Account Settings</a>
+                <a href="#">Payout Settings</a>
+                <a href="#">Logout</a>
+            </div>
+        </div> {% endcomment %}

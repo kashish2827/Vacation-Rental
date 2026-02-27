@@ -1441,3 +1441,28 @@ footer {
 .profile-dropdown:hover .dropdown-menu {
     display: block;
 }
+
+/* --- For the Radio Button ---*/
+/* Fix radio layout */
+.custom-input-group input[type="radio"] {
+    width: auto !important;
+    margin-right: 8px;
+}
+
+.custom-input-group label {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.custom-input-group ul {
+    list-style: none;
+    padding: 0;
+}
+
+.custom-input-group li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+/* --- For the User , Host Dashboard --- */

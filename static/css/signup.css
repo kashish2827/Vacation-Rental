@@ -1,0 +1,101 @@
+/* RESET */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden; /* 🔥 Stops scroll */
+    font-family: Arial, sans-serif;
+}
+
+/* SPLIT LAYOUT */
+.split-screen-wrapper {
+    display: flex;
+    height: 100vh;
+}
+
+/* LEFT IMAGE */
+.visual-side {
+    flex: 1;
+    background: url('/static/images/your-image.jpg') no-repeat center center;
+    background-size: cover;
+    position: relative;
+}
+
+.visual-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+}
+
+.visual-text {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    color: white;
+}
+
+/* RIGHT FORM */
+.form-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f9f9f9;
+}
+
+.form-content {
+    width: 85%;
+    max-width: 400px;
+}
+
+/* INPUTS */
+.custom-input-group {
+    margin-bottom: 10px;
+}
+
+.custom-input-group input,
+.custom-input-group select {
+    width: 100%;
+    padding: 8px;
+}
+
+/* RADIO FIX */
+.radio-group {
+    display: flex;
+    gap: 15px;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.radio-option input {
+    width: auto;
+}
+
+/* TERMS */
+.terms-flex {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+/* BUTTON */
+.submit-auth-btn {
+    width: 100%;
+    padding: 10px;
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* LOGIN LINK */
+.login-link {
+    font-size: 13px;
+    margin-top: 8px;
+}

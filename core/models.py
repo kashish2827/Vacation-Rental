@@ -43,7 +43,14 @@ class User(AbstractBaseUser):
     is_admin = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    
+    firstname = models.CharField(max_length=50,null=True)
+    lastname = models.CharField(max_length=50,null=True)
+    phoneno = models.CharField(max_length=10,null=True)
+    gender_choice = (
+        ('male','Male'),
+        ('female','Female')
+    )
+    gender = models.CharField(max_length=10,null=True,choices=gender_choice)
     
     objects = UserManager()
 

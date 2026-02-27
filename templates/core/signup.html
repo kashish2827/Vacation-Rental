@@ -1,23 +1,17 @@
- {% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up - Vacation Rental</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
 
-{% comment %}{% block title %}Sign Up - Vacation Rental{% endblock %}
+<body>
 
-{% block content %}
-
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign Up</button>
-</form>
-{% endblock %} {% endcomment %}
-
-
-{% block title %}Sign Up - Vacation Rental{% endblock %}
-
-
-{% block content %}
 <div class="split-screen-wrapper">
-    <!-- Image Side -->
+
+    <!-- LEFT IMAGE SIDE -->
     <div class="visual-side">
         <div class="visual-overlay"></div>
         <div class="visual-text">
@@ -26,61 +20,92 @@
         </div>
     </div>
 
-    <!-- Form Side -->
+    <!-- RIGHT FORM SIDE -->
     <div class="form-side">
         <div class="form-content">
+
             <div class="header-group">
                 <h2>Create Account</h2>
                 <p>Start your journey with Vacation Rental today.</p>
             </div>
 
-            {% comment %} <button class="social-btn">
-                <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="G">
-                Sign up with Google
-            </button>
-
-            <div class="form-divider"><span>OR</span></div> {% endcomment %}
-
             <form method="POST">
                 {% csrf_token %}
+
                 <div class="custom-input-group">
-                    <label for="id_email">Email Address</label>
-                    {{form.email}}
-                </div>
-                
-                <div class="custom-input-group">
-                    <label for="id_role">Choose Your Role</label>
-                    {{form.role}}
+                    <label>First Name</label>
+                    {{ form.firstname }}
                 </div>
 
                 <div class="custom-input-group">
-                    <label for="id_password1">Enter Password</label>
-                    {{form.password1}}
+                    <label>Last Name</label>
+                    {{ form.lastname }}
                 </div>
 
                 <div class="custom-input-group">
-                    <label for="id_password2">Confirm Password</label>
-                    {{form.password2}}
+                    <label>Phone Number</label>
+                    {{ form.phoneno }}
                 </div>
 
+                <div class="custom-input-group">
+                    <label>Email Address</label>
+                    {{ form.email }}
+                </div>
+
+                <div class="custom-input-group">
+                    <label>Choose Your Role</label>
+                    {{ form.role }}
+                </div>
+
+                <!-- Gender -->
+                <div class="custom-input-group">
+                    <label>Gender</label>
+                    <div class="radio-group">
+                        {% for radio in form.gender %}
+                            <label class="radio-option">
+                                {{ radio.tag }}
+                                <span>{{ radio.choice_label }}</span>
+                            </label>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="custom-input-group">
+                    <label>Password</label>
+                    {{ form.password1 }}
+                </div>
+
+                <div class="custom-input-group">
+                    <label>Confirm Password</label>
+                    {{ form.password2 }}
+                </div>
 
                 <div class="terms-flex">
-                    <input type="checkbox" id="terms" required>
-                    <label for="terms">I agree to the <a href="#">Terms of Service</a></label>
+                    <input type="checkbox" required>
+                    <label>I agree to the <a href="#">Terms of Service</a></label>
                 </div>
 
-                 {% if form.errors %}
-                    <div class="error-box">
-                        {{ form.errors }}
-                    </div>
+                {% if form.errors %}
+                <div class="error-box">
+                    {{ form.errors }}
+                </div>
                 {% endif %}
 
-                <button type="submit" class="submit-auth-btn">Get Started</button>
-                <p> If you already have an account? <a href="{% url 'login' %}">Log In</a></p>
+                <button type="submit" class="submit-auth-btn">
+                    Get Started
+                </button>
+
+                <p class="login-link">
+                    Already have an account?
+                    <a href="{% url 'login' %}">Log In</a>
+                </p>
+
             </form>
 
-            {% comment %} <p class="switch-auth">Already a member? <a href="#">Log In</a></p> {% endcomment %}
         </div>
     </div>
+
 </div>
-{% endblock content %}
+
+</body>
+</html>

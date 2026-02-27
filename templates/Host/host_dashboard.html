@@ -1,3 +1,405 @@
-{% extends "base.html" %}
+{% load static %}
 
-<h1> Host Dashboard </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DestinFlow — Host Portal</title>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<nav class="nav">
+  <a class="nav-logo" href="#">Destin<span>Flow</span></a>
+  <ul class="nav-links"><li><a href="#" onclick="showScreen('hostDash');return false">Dashboard</a></li>
+    <li><a href="#" onclick="showScreen('addProp');return false">Add Property</a></li>
+    <li><a href="#" onclick="showScreen('hostBookings');return false">Bookings</a></li>
+    <li><a href="#" onclick="showScreen('earningsScreen');return false">Earnings</a></li>
+    <li><a href="#" onclick="showScreen('hostAuth');return false">Account</a></li></ul>
+  <div class="nav-right">
+    <div class="role-label">✦ HOST PORTAL</div>
+    {% comment %} <a href="guest.html" class="btn btn-outline btn-sm">Guest →</a><a href="admin.html" class="btn btn-outline btn-sm">Admin →</a> {% endcomment %}
+    <button class="btn btn-gold btn-sm" onclick="openModal('notifModal')">🔔</button>
+  </div>
+</nav>
+<div class="app">
+<aside class="sidebar">
+  <div class="sidebar-logo-area"><div class="label">Current Role</div><div class="role-name">Host Portal</div></div>
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">Overview</div>
+    <div class="nav-item active" onclick="showScreen('hostDash')"><span class="nav-icon">📊</span>Dashboard</div>
+    <div class="nav-item" onclick="showScreen('addProp')"><span class="nav-icon">➕</span>Add Property</div>
+    <div class="nav-item" onclick="showScreen('manageProps')"><span class="nav-icon">🏘️</span>Manage Properties</div>
+    <div class="nav-item" onclick="showScreen('hostCal')"><span class="nav-icon">📅</span>Availability Calendar</div>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">Bookings &amp; Revenue</div>
+    <div class="nav-item" onclick="showScreen('hostBookings')"><span class="nav-icon">📋</span>Show Bookings<span class="nav-badge">3</span></div>
+    <div class="nav-item" onclick="showScreen('pricingScreen')"><span class="nav-icon">💰</span>Dynamic Pricing</div>
+    <div class="nav-item" onclick="showScreen('earningsScreen')"><span class="nav-icon">📈</span>Earnings Dashboard</div>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">Account</div>
+    <div class="nav-item" onclick="showScreen('hostAuth')"><span class="nav-icon">👤</span>Register / Login</div>
+  </div>
+</aside>
+<div class="content">
+<div class="screen active" id="hostDash">
+  <div class="section">
+    <div class="sec-header"><div><div class="section-label">Host Portal</div><h2 class="section-h">Welcome back, Arjun Kumar 👋</h2></div><button class="btn btn-dark" onclick="showScreen('addProp')">+ Add Property</button></div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:28px">
+      <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 22px"><div style="font-size:1.8rem;margin-bottom:8px">🏠</div><div style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--dark)">5</div><div style="font-size:.76rem;color:var(--gray);text-transform:uppercase;letter-spacing:.8px;margin-top:3px">Active Properties</div></div>
+      <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 22px"><div style="font-size:1.8rem;margin-bottom:8px">📅</div><div style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--dark)">23</div><div style="font-size:.76rem;color:var(--gray);text-transform:uppercase;letter-spacing:.8px;margin-top:3px">Total Bookings</div></div>
+      <div style="background:var(--dark);border-radius:14px;padding:20px 22px"><div style="font-size:1.8rem;margin-bottom:8px">💰</div><div style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--gold)">₹1.8L</div><div style="font-size:.76rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.8px;margin-top:3px">Monthly Earnings</div></div>
+      <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 22px"><div style="font-size:1.8rem;margin-bottom:8px">⭐</div><div style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--dark)">4.8</div><div style="font-size:.76rem;color:var(--gray);text-transform:uppercase;letter-spacing:.8px;margin-top:3px">Avg. Rating</div></div>
+    </div>
+    <div class="form-row">
+      <div class="card">
+        <div class="sec-title">Monthly Earnings (2024)</div>
+        <div class="echart">
+          <div class="ebar" style="height:40%;background:linear-gradient(to top,var(--gold),rgba(201,168,76,.4))"><span class="ebar-val">₹80k</span><span class="ebar-label">Jul</span></div>
+          <div class="ebar" style="height:56%;background:linear-gradient(to top,var(--gold),rgba(201,168,76,.4))"><span class="ebar-val">₹1.1L</span><span class="ebar-label">Aug</span></div>
+          <div class="ebar" style="height:46%;background:linear-gradient(to top,var(--gold),rgba(201,168,76,.4))"><span class="ebar-val">₹90k</span><span class="ebar-label">Sep</span></div>
+          <div class="ebar" style="height:72%;background:linear-gradient(to top,var(--gold),rgba(201,168,76,.4))"><span class="ebar-val">₹1.4L</span><span class="ebar-label">Oct</span></div>
+          <div class="ebar" style="height:88%;background:linear-gradient(to top,var(--gold),rgba(201,168,76,.4))"><span class="ebar-val">₹1.7L</span><span class="ebar-label">Nov</span></div>
+          <div class="ebar" style="height:100%;background:linear-gradient(to top,var(--dark),var(--charcoal2))"><span class="ebar-val">₹1.8L</span><span class="ebar-label">Dec</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="sec-title">Recent Bookings</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:12px;background:var(--cream);border-radius:10px;border:1px solid var(--border)"><div><div style="font-weight:600;font-size:.88rem">Rahul S.</div><div style="font-size:.75rem;color:var(--gray)">Beach Villa • Jan 15–18</div></div><span class="badge badge-green">Confirmed</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:12px;background:var(--cream);border-radius:10px;border:1px solid var(--border)"><div><div style="font-weight:600;font-size:.88rem">Priya M.</div><div style="font-size:.75rem;color:var(--gray)">Cottage • Jan 20–25</div></div><span class="badge badge-gold">Pending</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:12px;background:var(--cream);border-radius:10px;border:1px solid var(--border)"><div><div style="font-weight:600;font-size:.88rem">Amit K.</div><div style="font-size:.75rem;color:var(--gray)">Studio • Jan 22–24</div></div><span class="badge badge-green">Confirmed</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HOST: ADD PROPERTY --><div class="screen" id="addProp">
+  <div class="section">
+    <div class="sec-header"><div><div class="section-label">Host Portal</div><h2 class="section-h">Add New Property</h2></div></div>
+    <div class="detail-layout">
+      <div class="card">
+        <div class="sec-title">Basic Information</div>
+        <div class="form-group"><label class="form-label">Property Name</label><input class="form-input" placeholder="Give your property a memorable name"></div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Property Type</label><select class="form-select"><option>Select type</option><option>Villa</option><option>Apartment</option><option>Homestay</option><option>Farmhouse</option></select></div>
+          <div class="form-group"><label class="form-label">Max Guests</label><input class="form-input" type="number" value="6"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Bedrooms</label><input class="form-input" type="number" value="3"></div>
+          <div class="form-group"><label class="form-label">Bathrooms</label><input class="form-input" type="number" value="2"></div>
+        </div>
+        <div class="form-group"><label class="form-label">Description</label><textarea class="form-textarea" placeholder="Describe your property in detail…"></textarea></div>
+        <div class="form-group"><label class="form-label">Full Address</label><input class="form-input" placeholder="Street, City, State, PIN Code"></div>
+        <div class="form-row"><div class="form-group"><label class="form-label">City</label><input class="form-input" placeholder="Goa"></div><div class="form-group"><label class="form-label">State</label><input class="form-input" placeholder="Goa"></div></div>
+        <div class="sec-title">Amenities</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:22px">
+          <label style="display:flex;align-items:center;gap:8px;font-size:.85rem;cursor:pointer;background:var(--cream);border:1px solid var(--border);padding:10px;border-radius:8px"><input type="checkbox" checked> 🏊 Pool</label>
+          <label style="display:flex;align-items:center;gap:8px;font-size:.85rem;cursor:pointer;background:var(--cream);border:1px solid var(--border);padding:10px;border-radius:8px"><input type="checkbox" checked> 📶 WiFi</label>
+          <label style="display:flex;align-items:center;gap:8px;font-size:.85rem;cursor:pointer;background:var(--cream);border:1px solid var(--border);padding:10px;border-radius:8px"><input type="checkbox" checked> ❄️ AC</label>
+          <label style="display:flex;align-items:center;gap:8px;font-size:.85rem;cursor:pointer;background:var(--cream);border:1px solid var(--border);padding:10px;border-radius:8px"><input type="checkbox"> 🍳 Kitchen</label>
+          <label style="display:flex;align-items:center;gap:8px;font-size:.85rem;cursor:pointer;background:var(--cream);border:1px solid var(--border);padding:10px;border-radius:8px"><input type="checkbox"> 🅿️ Parking</label>
+          <label style="display:flex;align-items:center;gap:8px;font-size:.85rem;cursor:pointer;background:var(--cream);border:1px solid var(--border);padding:10px;border-radius:8px"><input type="checkbox" checked> 🐾 Pet Friendly</label>
+          <label style="display:flex;align-items:center;gap:8px;font-size:.85rem;cursor:pointer;background:var(--cream);border:1px solid var(--border);padding:10px;border-radius:8px"><input type="checkbox"> ⚡ Instant Book</label>
+          <label style="display:flex;align-items:center;gap:8px;font-size:.85rem;cursor:pointer;background:var(--cream);border:1px solid var(--border);padding:10px;border-radius:8px"><input type="checkbox" checked> 📺 Smart TV</label>
+          <label style="display:flex;align-items:center;gap:8px;font-size:.85rem;cursor:pointer;background:var(--cream);border:1px solid var(--border);padding:10px;border-radius:8px"><input type="checkbox"> 🔒 Security</label>
+        </div>
+        <div class="sec-title">Upload Photos</div>
+        <div onclick="showToast('📸 File picker opens here')" style="border:2px dashed var(--border);border-radius:14px;padding:40px;text-align:center;cursor:pointer;transition:.22s;margin-bottom:22px;background:var(--cream)" onmouseover="this.style.borderColor='var(--dark)'" onmouseout="this.style.borderColor='var(--border)'">
+          <div style="font-size:2.2rem;margin-bottom:8px">📸</div>
+          <div style="color:var(--gray);font-size:.88rem">Drag & drop or <span style="color:var(--dark);font-weight:600;text-decoration:underline">browse files</span></div>
+          <div style="font-size:.74rem;color:var(--gray2);margin-top:5px">JPG, PNG • Max 10MB • Minimum 5 photos required</div>
+        </div>
+        <div style="display:flex;gap:12px"><button class="btn btn-outline-dark">Save as Draft</button><button class="btn btn-dark" onclick="showScreen('pricingScreen')">Continue to Pricing →</button></div>
+      </div>
+      <div>
+        <div class="card-sand" style="margin-bottom:16px">
+          <div class="sec-title">Listing Tips</div>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:.83rem;color:var(--charcoal)">
+            <div>📸 Properties with 10+ photos get 3× more bookings</div>
+            <div>✏️ Detailed descriptions build trust & boost conversions</div>
+            <div>⭐ Accurate amenities lead to better guest reviews</div>
+            <div>📍 Precise location helps guests plan their trip</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="sec-title">Checklist</div>
+          <div style="display:flex;flex-direction:column;gap:8px;font-size:.84rem">
+            <div style="display:flex;align-items:center;gap:8px"><span style="color:var(--green)">✅</span>Property name & type</div>
+            <div style="display:flex;align-items:center;gap:8px"><span style="color:var(--green)">✅</span>Guest capacity & beds</div>
+            <div style="display:flex;align-items:center;gap:8px"><span style="color:var(--gray)">○</span>Photos uploaded</div>
+            <div style="display:flex;align-items:center;gap:8px"><span style="color:var(--gray)">○</span>Pricing configured</div>
+            <div style="display:flex;align-items:center;gap:8px"><span style="color:var(--gray)">○</span>Calendar set up</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HOST: MANAGE PROPERTIES --><div class="screen" id="manageProps">
+  <div class="section">
+    <div class="sec-header"><div><div class="section-label">Host Portal</div><h2 class="section-h">Manage Properties</h2></div><button class="btn btn-dark" onclick="showScreen('addProp')">+ Add Property</button></div>
+    <div class="card">
+      <table class="tbl">
+        <thead><tr><th>Property</th><th>Type</th><th>Status</th><th>Price/Night</th><th>Occupancy</th><th>Actions</th></tr></thead>
+        <tbody>
+          <tr><td><div style="font-weight:700">Beachfront Paradise Villa</div><div style="font-size:.75rem;color:var(--gray)">Goa • 4 beds • 8 guests</div></td><td>Villa</td><td><span class="badge badge-green">Active</span></td><td style="font-weight:600">₹12,500</td><td><div class="prog-bar" style="width:80px"><div class="prog-fill" style="width:85%;background:var(--green)"></div></div><div style="font-size:.7rem;color:var(--gray);margin-top:3px">85%</div></td><td><div style="display:flex;gap:6px"><button class="btn btn-outline-dark btn-sm" onclick="showScreen('addProp')">✏️ Edit</button><button class="btn btn-outline-dark btn-sm" onclick="showScreen('hostCal')">📅 Cal</button><button class="btn btn-outline-dark btn-sm" onclick="showToast('⏸️ Property deactivated')">Pause</button></div></td></tr>
+          <tr><td><div style="font-weight:700">Mountain Mist Cottage</div><div style="font-size:.75rem;color:var(--gray)">Manali • 2 beds • 4 guests</div></td><td>Homestay</td><td><span class="badge badge-green">Active</span></td><td style="font-weight:600">₹4,200</td><td><div class="prog-bar" style="width:80px"><div class="prog-fill" style="width:70%;background:var(--green)"></div></div><div style="font-size:.7rem;color:var(--gray);margin-top:3px">70%</div></td><td><div style="display:flex;gap:6px"><button class="btn btn-outline-dark btn-sm">✏️ Edit</button><button class="btn btn-outline-dark btn-sm">📅 Cal</button><button class="btn btn-outline-dark btn-sm" onclick="showToast('⏸️ Deactivated')">Pause</button></div></td></tr>
+          <tr><td><div style="font-weight:700">City Studio Loft</div><div style="font-size:.75rem;color:var(--gray)">Mumbai • 1 bed • 2 guests</div></td><td>Apartment</td><td><span class="badge badge-blue">Maintenance</span></td><td style="font-weight:600">₹3,500</td><td><div style="font-size:.75rem;color:var(--gray)">On hold</div></td><td><div style="display:flex;gap:6px"><button class="btn btn-outline-dark btn-sm">✏️ Edit</button><button class="btn btn-dark btn-sm" onclick="showToast('✅ Property activated!')">Activate</button></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- HOST: CALENDAR --><div class="screen" id="hostCal">
+  <div class="section">
+    <div class="sec-header"><div><div class="section-label">Host Portal</div><h2 class="section-h">Availability Calendar</h2></div></div>
+    <div class="form-row">
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700">January 2025</h3>
+          <div style="display:flex;gap:8px"><button class="btn btn-outline-dark btn-sm">‹ Prev</button><button class="btn btn-outline-dark btn-sm">Next ›</button></div>
+        </div>
+        <div class="cal-grid" style="margin-bottom:6px">
+          <div class="cal-dn">Su</div><div class="cal-dn">Mo</div><div class="cal-dn">Tu</div><div class="cal-dn">We</div><div class="cal-dn">Th</div><div class="cal-dn">Fr</div><div class="cal-dn">Sa</div>
+        </div>
+        <div class="hcal-grid">
+          <div class="hcal-d empty"></div><div class="hcal-d empty"></div><div class="hcal-d empty"></div><div class="hcal-d avail" onclick="toggleBlock(this)">1</div><div class="hcal-d avail" onclick="toggleBlock(this)">2</div><div class="hcal-d avail" onclick="toggleBlock(this)">3</div><div class="hcal-d avail" onclick="toggleBlock(this)">4</div>
+          <div class="hcal-d avail" onclick="toggleBlock(this)">5</div><div class="hcal-d avail" onclick="toggleBlock(this)">6</div><div class="hcal-d avail" onclick="toggleBlock(this)">7</div><div class="hcal-d avail" onclick="toggleBlock(this)">8</div><div class="hcal-d avail" onclick="toggleBlock(this)">9</div><div class="hcal-d bkd">10</div><div class="hcal-d bkd">11</div>
+          <div class="hcal-d bkd">12</div><div class="hcal-d bkd">13</div><div class="hcal-d bkd">14</div><div class="hcal-d avail" onclick="toggleBlock(this)">15</div><div class="hcal-d avail" onclick="toggleBlock(this)">16</div><div class="hcal-d avail" onclick="toggleBlock(this)">17</div><div class="hcal-d avail" onclick="toggleBlock(this)">18</div>
+          <div class="hcal-d blkd" onclick="toggleBlock(this)">19</div><div class="hcal-d blkd" onclick="toggleBlock(this)">20</div><div class="hcal-d avail" onclick="toggleBlock(this)">21</div><div class="hcal-d avail" onclick="toggleBlock(this)">22</div><div class="hcal-d avail" onclick="toggleBlock(this)">23</div><div class="hcal-d avail" onclick="toggleBlock(this)">24</div><div class="hcal-d avail" onclick="toggleBlock(this)">25</div>
+          <div class="hcal-d avail" onclick="toggleBlock(this)">26</div><div class="hcal-d avail" onclick="toggleBlock(this)">27</div><div class="hcal-d avail" onclick="toggleBlock(this)">28</div><div class="hcal-d avail" onclick="toggleBlock(this)">29</div><div class="hcal-d avail" onclick="toggleBlock(this)">30</div><div class="hcal-d avail" onclick="toggleBlock(this)">31</div>
+        </div>
+        <div style="display:flex;gap:16px;margin-top:16px;font-size:.78rem;color:var(--gray)">
+          <span style="display:flex;align-items:center;gap:5px"><span style="width:12px;height:12px;border-radius:3px;background:rgba(74,158,106,.2);display:inline-block"></span>Available</span>
+          <span style="display:flex;align-items:center;gap:5px"><span style="width:12px;height:12px;border-radius:3px;background:rgba(217,79,79,.2);display:inline-block"></span>Booked</span>
+          <span style="display:flex;align-items:center;gap:5px"><span style="width:12px;height:12px;border-radius:3px;background:rgba(136,136,128,.2);display:inline-block"></span>Blocked</span>
+        </div>
+        <div style="margin-top:10px;font-size:.77rem;color:var(--gray2)">💡 Click an available date to block/unblock it</div>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:16px">
+          <div class="sec-title">Quick Block Dates</div>
+          <div class="form-row"><div class="form-group"><label class="form-label">From</label><input class="form-input" type="date"></div><div class="form-group"><label class="form-label">To</label><input class="form-input" type="date"></div></div>
+          <div class="form-group"><label class="form-label">Reason</label><select class="form-select"><option>Personal use</option><option>Maintenance</option><option>Other</option></select></div>
+          <button class="btn btn-dark btn-sm" onclick="showToast('📅 Dates blocked successfully')">Block Dates →</button>
+        </div>
+        <div class="card-sand">
+          <div class="sec-title">Upcoming Bookings</div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="padding:12px;background:#fff;border-radius:10px;border:1px solid var(--border)"><div style="font-weight:600;font-size:.88rem">Rahul S. — 4 Guests</div><div style="font-size:.75rem;color:var(--gray)">Jan 10–14 • ₹50,000</div></div>
+            <div style="padding:12px;background:#fff;border-radius:10px;border:1px solid var(--border)"><div style="font-weight:600;font-size:.88rem">Priya M. — 2 Guests</div><div style="font-size:.75rem;color:var(--gray)">Jan 15–18 • ₹37,500</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HOST: BOOKINGS --><div class="screen" id="hostBookings">
+  <div class="section">
+    <div class="sec-header"><div><div class="section-label">Host Portal</div><h2 class="section-h">Guest Bookings</h2></div></div>
+    <div class="card">
+      <table class="tbl">
+        <thead><tr><th>Guest</th><th>Property</th><th>Dates</th><th>Guests</th><th>Amount</th><th>Status</th><th>Actions</th></tr></thead>
+        <tbody>
+          <tr><td><div style="font-weight:700">Rahul Sharma</div><div style="font-size:.75rem;color:var(--gray)"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a7d5c6cfd2cbe7c2cac6cecb89c4c8ca">[email&#160;protected]</a></div></td><td>Beachfront Villa</td><td>Jan 15–18</td><td>4</td><td style="font-weight:700">₹41,250</td><td><span class="badge badge-green">Confirmed</span></td><td><button class="btn btn-outline-dark btn-sm">View</button></td></tr>
+          <tr><td><div style="font-weight:700">Priya Mehta</div><div style="font-size:.75rem;color:var(--gray)"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f08082998991b0959d91999cde939f9d">[email&#160;protected]</a></div></td><td>Mountain Cottage</td><td>Jan 20–25</td><td>2</td><td style="font-weight:700">₹21,000</td><td><span class="badge badge-gold">Pending</span></td><td><div style="display:flex;gap:6px"><button class="btn btn-green btn-sm" onclick="showToast('✅ Accepted!')">Accept</button><button class="btn btn-outline-dark btn-sm">Decline</button></div></td></tr>
+          <tr><td><div style="font-weight:700">Amit Kapoor</div><div style="font-size:.75rem;color:var(--gray)"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="36575b5f4276535b575f5a1855595b">[email&#160;protected]</a></div></td><td>City Studio</td><td>Jan 22–24</td><td>1</td><td style="font-weight:700">₹7,000</td><td><span class="badge badge-green">Confirmed</span></td><td><button class="btn btn-outline-dark btn-sm">View</button></td></tr>
+          <tr><td><div style="font-weight:700">Sneha Joshi</div><div style="font-size:.75rem;color:var(--gray)"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="30435e55585170555d51595c1e535f5d">[email&#160;protected]</a></div></td><td>Beachfront Villa</td><td>Feb 3–7</td><td>6</td><td style="font-weight:700">₹55,000</td><td><span class="badge badge-gold">Pending</span></td><td><div style="display:flex;gap:6px"><button class="btn btn-green btn-sm" onclick="showToast('✅ Accepted!')">Accept</button><button class="btn btn-outline-dark btn-sm">Decline</button></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- HOST: DYNAMIC PRICING --><div class="screen" id="pricingScreen">
+  <div class="section">
+    <div class="sec-header"><div><div class="section-label">Host Portal</div><h2 class="section-h">Dynamic Pricing</h2></div></div>
+    <div class="detail-layout">
+      <div class="card">
+        <div class="sec-title">Base Pricing</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:24px">
+          <div class="price-type"><div class="price-lbl">Base Price</div><div class="price-iw"><span class="price-sym">₹</span><input type="number" value="12500"></div><div style="font-size:.72rem;color:var(--gray);margin-top:4px">per night</div></div>
+          <div class="price-type"><div class="price-lbl">Weekend Price</div><div class="price-iw"><span class="price-sym">₹</span><input type="number" value="15000"></div><div style="font-size:.72rem;color:var(--gray);margin-top:4px">Fri–Sun surcharge</div></div>
+          <div class="price-type"><div class="price-lbl">Cleaning Fee</div><div class="price-iw"><span class="price-sym">₹</span><input type="number" value="1500"></div><div style="font-size:.72rem;color:var(--gray);margin-top:4px">one-time charge</div></div>
+        </div>
+        <div class="sec-title">Seasonal Pricing</div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:24px">
+          <div style="display:flex;align-items:center;gap:16px;background:var(--cream);border-radius:12px;padding:16px;border:1px solid var(--border)"><div style="flex:1"><div style="font-weight:600;font-size:.9rem">Peak Season (Dec–Jan)</div><div style="font-size:.75rem;color:var(--gray)">Christmas & New Year</div></div><div style="display:flex;align-items:center;gap:5px"><span class="price-sym" style="font-size:1rem">₹</span><input type="number" value="18000" style="border:none;outline:none;font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--dark);background:transparent;width:80px"></div></div>
+          <div style="display:flex;align-items:center;gap:16px;background:var(--cream);border-radius:12px;padding:16px;border:1px solid var(--border)"><div style="flex:1"><div style="font-weight:600;font-size:.9rem">Festival (Diwali / Holi)</div><div style="font-size:.75rem;color:var(--gray)">Oct 20 – Nov 5</div></div><div style="display:flex;align-items:center;gap:5px"><span class="price-sym" style="font-size:1rem">₹</span><input type="number" value="20000" style="border:none;outline:none;font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--dark);background:transparent;width:80px"></div></div>
+          <div style="display:flex;align-items:center;gap:16px;background:var(--cream);border-radius:12px;padding:16px;border:1px solid var(--border)"><div style="flex:1"><div style="font-weight:600;font-size:.9rem">Off-Season (Mar–May)</div><div style="font-size:.75rem;color:var(--gray)">Summer months</div></div><div style="display:flex;align-items:center;gap:5px"><span class="price-sym" style="font-size:1rem">₹</span><input type="number" value="8000" style="border:none;outline:none;font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--dark);background:transparent;width:80px"></div></div>
+        </div>
+        <div class="sec-title">Discount Rules</div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:22px">
+          <div style="display:flex;justify-content:space-between;align-items:center;background:var(--cream);padding:14px;border-radius:10px;border:1px solid var(--border)"><div><div style="font-weight:600;font-size:.88rem">Weekly Discount</div><div style="font-size:.75rem;color:var(--gray)">7+ nights</div></div><div style="display:flex;align-items:center;gap:6px"><input type="number" value="10" style="width:52px;border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-family:'DM Sans',sans-serif;outline:none;background:#fff"><span style="font-size:.88rem;font-weight:600">%</span></div></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;background:var(--cream);padding:14px;border-radius:10px;border:1px solid var(--border)"><div><div style="font-weight:600;font-size:.88rem">Monthly Discount</div><div style="font-size:.75rem;color:var(--gray)">28+ nights</div></div><div style="display:flex;align-items:center;gap:6px"><input type="number" value="20" style="width:52px;border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-family:'DM Sans',sans-serif;outline:none;background:#fff"><span style="font-size:.88rem;font-weight:600">%</span></div></div>
+        </div>
+        <div style="display:flex;gap:12px"><button class="btn btn-outline-dark">Reset to Default</button><button class="btn btn-dark" onclick="showToast('💰 Pricing saved!')">Save Pricing →</button></div>
+      </div>
+      <div>
+        <div class="card-sand">
+          <div class="sec-title">Preview</div>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:.88rem">
+            <div style="display:flex;justify-content:space-between"><span style="color:var(--gray)">Weekday</span><span style="font-weight:600">₹12,500</span></div>
+            <div style="display:flex;justify-content:space-between"><span style="color:var(--gray)">Weekend</span><span style="font-weight:600">₹15,000</span></div>
+            <div style="display:flex;justify-content:space-between"><span style="color:var(--gray)">Peak Season</span><span style="font-weight:600;color:var(--gold2)">₹18,000</span></div>
+            <div style="display:flex;justify-content:space-between"><span style="color:var(--gray)">Festival</span><span style="font-weight:600;color:var(--gold2)">₹20,000</span></div>
+            <div class="divider" style="margin:8px 0"></div>
+            <div style="display:flex;justify-content:space-between"><span style="color:var(--gray)">7-night deal</span><span style="color:var(--green);font-weight:600">-10%</span></div>
+            <div style="display:flex;justify-content:space-between"><span style="color:var(--gray)">Monthly deal</span><span style="color:var(--green);font-weight:600">-20%</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HOST: EARNINGS --><div class="screen" id="earningsScreen">
+  <div class="section">
+    <div class="sec-header"><div><div class="section-label">Host Portal</div><h2 class="section-h">Earnings Dashboard</h2></div></div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:28px">
+      <div style="background:var(--dark);border-radius:14px;padding:20px"><div style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--gold)">₹1.8L</div><div style="font-size:.74rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.8px;margin-top:4px">This Month</div><div style="font-size:.78rem;color:var(--green);margin-top:4px">+22% vs last</div></div>
+      <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px"><div style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700">₹8.4L</div><div style="font-size:.74rem;color:var(--gray);text-transform:uppercase;letter-spacing:.8px;margin-top:4px">Year to Date</div></div>
+      <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px"><div style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700">23</div><div style="font-size:.74rem;color:var(--gray);text-transform:uppercase;letter-spacing:.8px;margin-top:4px">Completed Stays</div></div>
+      <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px"><div style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700">78%</div><div style="font-size:.74rem;color:var(--gray);text-transform:uppercase;letter-spacing:.8px;margin-top:4px">Occupancy Rate</div></div>
+    </div>
+    <div class="form-row">
+      <div class="card">
+        <div class="sec-title">Monthly Breakdown</div>
+        <table class="tbl"><thead><tr><th>Month</th><th>Bookings</th><th>Nights</th><th>Earnings</th></tr></thead><tbody>
+          <tr><td>December 2024</td><td>8</td><td>24</td><td style="font-weight:700;color:var(--gold2)">₹1,80,000</td></tr>
+          <tr><td>November 2024</td><td>7</td><td>20</td><td style="font-weight:700">₹1,70,000</td></tr>
+          <tr><td>October 2024</td><td>6</td><td>18</td><td style="font-weight:700">₹1,40,000</td></tr>
+          <tr><td>September 2024</td><td>4</td><td>12</td><td style="font-weight:700">₹90,000</td></tr>
+        </tbody></table>
+      </div>
+      <div class="card">
+        <div class="sec-title">Payout History</div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:14px;background:var(--cream);border-radius:10px;border:1px solid var(--border)"><div><div style="font-weight:600;font-size:.9rem">December Payout</div><div style="font-size:.75rem;color:var(--gray)">Processed Jan 5, 2025</div></div><div style="text-align:right"><div style="font-weight:700;color:var(--green)">₹1,62,000</div><div style="font-size:.72rem;color:var(--gray)">After 10% commission</div></div></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:14px;background:var(--cream);border-radius:10px;border:1px solid var(--border)"><div><div style="font-weight:600;font-size:.9rem">November Payout</div><div style="font-size:.75rem;color:var(--gray)">Processed Dec 5, 2024</div></div><div style="text-align:right"><div style="font-weight:700;color:var(--green)">₹1,53,000</div><div style="font-size:.72rem;color:var(--gray)">After 10% commission</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HOST AUTH --><div class="screen" id="hostAuth">
+  <div class="auth-wrap">
+    <div class="auth-card card">
+      <div style="text-align:center;margin-bottom:26px"><div style="font-size:2.5rem;margin-bottom:10px">🏠</div><div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700">Become a Host</div><div style="font-size:.86rem;color:var(--gray);margin-top:5px">List your property & start earning</div></div>
+      <div class="auth-tabs"><div class="auth-tab active" onclick="authTab(this)">Register</div><div class="auth-tab" onclick="authTab(this)">Login</div></div>
+      <div class="form-row"><div class="form-group"><label class="form-label">Full Name</label><input class="form-input" placeholder="Arjun Kumar"></div><div class="form-group"><label class="form-label">Phone</label><input class="form-input" placeholder="+91 9876543210"></div></div>
+      <div class="form-group"><label class="form-label">Email</label><input class="form-input" placeholder="arjun@email.com"></div>
+      <div class="form-group"><label class="form-label">Password</label><input class="form-input" type="password" placeholder="Create password"></div>
+      <div class="form-group"><label class="form-label">Aadhaar / PAN (Identity Verification)</label><input class="form-input" placeholder="Enter document number"></div>
+      <button class="btn btn-dark" style="width:100%;justify-content:center" onclick="showToast('✅ Host account created! Awaiting verification.')">Register as Host →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!--           ADMIN SCREENS                 -->
+<!-- ═══════════════════════════════════════ -->
+
+<!-- ADMIN DASHBOARD -->
+</div>
+</div>
+<!-- MODALS -->
+<div class="modal-bg" id="notifModal" onclick="if(event.target===this)closeModal('notifModal')">
+  <div class="modal">
+    <div class="modal-hd"><div class="modal-title">Notifications</div><button class="modal-close" onclick="closeModal('notifModal')">✕</button></div>
+    <div class="notif-item"><div class="notif-icon" style="background:rgba(74,158,106,.12)">✅</div><div><div class="notif-text"><strong>Booking confirmed!</strong> Beachfront Paradise Villa, Jan 15–18</div><div class="notif-time">2 hours ago</div></div></div>
+    <div class="notif-item"><div class="notif-icon" style="background:rgba(201,168,76,.12)">💳</div><div><div class="notif-text"><strong>Payment received</strong> — ₹41,250 charged</div><div class="notif-time">2 hours ago</div></div></div>
+    <div class="notif-item"><div class="notif-icon" style="background:rgba(58,110,168,.12)">📢</div><div><div class="notif-text">New Year offer: 20% off with code NEWYEAR25</div><div class="notif-time">Jan 1, 2025</div></div></div>
+  </div>
+</div>
+
+<div class="modal-bg" id="priceModal" onclick="if(event.target===this)closeModal('priceModal')">
+  <div class="modal">
+    <div class="modal-hd"><div class="modal-title">Price Range</div><button class="modal-close" onclick="closeModal('priceModal')">✕</button></div>
+    <div class="form-group"><label class="form-label">Minimum (per night)</label><input class="form-input" type="number" value="1000"></div>
+    <div class="form-group"><label class="form-label">Maximum (per night)</label><input class="form-input" type="number" value="25000"></div>
+    <button class="btn btn-dark" onclick="closeModal('priceModal');showToast('💰 Price filter applied!')">Apply Filter →</button>
+  </div>
+</div>
+<div class="toast" id="toast"><span id="toastMsg">Done!</span></div>
+<script>
+// ── SCREEN SWITCH ──
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  const t = document.getElementById(id);
+  if (t) t.classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(n => {
+    n.classList.remove('active');
+    if (n.getAttribute('onclick') && n.getAttribute('onclick').includes(id)) n.classList.add('active');
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── WISHLIST ──
+function wishToggle(el) {
+  el.classList.toggle('on');
+  el.textContent = el.classList.contains('on') ? '♥' : '♡';
+  el.style.color = el.classList.contains('on') ? 'var(--red)' : '';
+  showToast(el.classList.contains('on') ? '❤️ Added to wishlist!' : '🗑️ Removed from wishlist');
+}
+
+// ── HOST CALENDAR ──
+function toggleBlock(el) {
+  if (el.classList.contains('bkd')) return;
+  if (el.classList.contains('blkd')) {
+    el.classList.replace('blkd', 'avail');
+    showToast('✅ Date unblocked');
+  } else {
+    el.classList.replace('avail', 'blkd');
+    showToast('🔒 Date blocked');
+  }
+}
+
+// ── FILTER CHIPS ──
+function toggleChip(el) {
+  el.closest('.filter-row').querySelectorAll('.fchip').forEach(c => c.classList.remove('on'));
+  el.classList.add('on');
+}
+
+// ── AUTH TABS ──
+function authTab(el) {
+  el.closest('.auth-tabs').querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+}
+
+// ── PAYMENT METHOD ──
+function selPay(el) {
+  el.closest('.pay-grid').querySelectorAll('.pay-card').forEach(c => c.classList.remove('sel'));
+  el.classList.add('sel');
+}
+
+// ── MODALS ──
+function openModal(id) { document.getElementById(id).classList.add('open'); }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+
+// ── STAR RATING ──
+function setStars(id, n) {
+  document.querySelectorAll('#' + id + ' span').forEach((s, i) => s.classList.toggle('on', i < n));
+}
+
+// ── TOAST ──
+let _tt;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  document.getElementById('toastMsg').textContent = msg;
+  t.classList.add('show');
+  clearTimeout(_tt);
+  _tt = setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+</script>
+</body>
+</html>
