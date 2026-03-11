@@ -1,4 +1,4 @@
-{% load static %}
+{% comment %} {% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -101,4 +101,719 @@
 </section>
 
     {% endblock %}
-{% include "footer/footer.html" %}
+{% include "footer/footer.html" %} {% endcomment %}
+
+{% comment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DestinFlow – User Dashboard</title>
+  <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+</head>
+<body>
+{% include "navbar/usernavbar.html" %}
+<!-- ===== SIDEBAR ===== -->
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <a href="#">
+      <div class="logo-icon">🌊</div>
+      <span class="logo-text">Destin<span>Flow</span></span>
+    </a>
+  </div>
+
+  <div class="nav-section">
+    <p class="nav-label">Main</p>
+    <ul class="nav-links">
+      <li class="active">
+        <a href="/"><span class="nav-icon">🏠</span> Home</a>
+      </li>
+      <li>
+        <a href="#"><span class="nav-icon">❤️</span> Wishlist <span class="nav-badge gold">3</span></a>
+      </li>
+      <li>
+        <a href="#"><span class="nav-icon">📋</span> My Booking</a>
+      </li>
+      <li>
+        <a href="#"><span class="nav-icon">🗺️</span> Local Experiences</a>
+      </li>
+      <li>
+        <a href="#"><span class="nav-icon">🔔</span> Notification <span class="nav-badge">2</span></a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="nav-section">
+    <p class="nav-label">Account</p>
+    <ul class="nav-links">
+      <li>
+        <a href="#"><span class="nav-icon">👤</span> My Profile</a>
+      </li>
+      <li>
+        <a href="#"><span class="nav-icon">⚙️</span> Settings</a>
+      </li>
+      <li>
+        <a href="#"><span class="nav-icon">💬</span> Support</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="sidebar-bottom">
+    <div class="user-card">
+      <div class="user-avatar">S</div>
+      <div class="user-info">
+        <div class="user-name">Sarah Mitchell</div>
+        <div class="user-role">Explorer Member</div>
+      </div>
+      <span class="user-logout">↩</span>
+    </div>
+  </div>
+</aside>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="main-content">
+
+  <!-- Topbar -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <h1>Welcome back, Sarah ✨</h1>
+      <p>Sunday, 08 March 2026 · Surat, Gujarat</p>
+    </div>
+    <div class="topbar-right">
+      <button class="topbar-btn">🔍</button>
+      <button class="topbar-btn">
+        🔔
+        <span class="topbar-notif-dot"></span>
+      </button>
+      <div class="topbar-avatar">S</div>
+    </div>
+  </header>
+
+  <!-- Page Body -->
+  <main class="page-body">
+
+    <!-- Stats -->
+    <div class="stats-grid">
+      <div class="stat-card blue">
+        <div class="stat-icon">✈️</div>
+        <div class="stat-value">12</div>
+        <div class="stat-label">Total Trips Booked</div>
+        <div class="stat-change up">↑ 2 this year</div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-icon">🏨</div>
+        <div class="stat-value">4</div>
+        <div class="stat-label">Upcoming Stays</div>
+        <div class="stat-change up">↑ Next in 5 days</div>
+      </div>
+      <div class="stat-card gold">
+        <div class="stat-icon">❤️</div>
+        <div class="stat-value">28</div>
+        <div class="stat-label">Wishlist Items</div>
+        <div class="stat-change up">↑ 5 new this week</div>
+      </div>
+      <div class="stat-card red">
+        <div class="stat-icon">⭐</div>
+        <div class="stat-value">4.9</div>
+        <div class="stat-label">Avg. Review Score</div>
+        <div class="stat-change up">↑ 11 reviews given</div>
+      </div>
+    </div>
+
+    <!-- Upcoming Trip Highlight -->
+    <div class="trip-highlight">
+      <div class="badge badge-success" style="margin-bottom:12px;">🟢 Confirmed Booking</div>
+      <h2>Maldives Water Villa Retreat</h2>
+      <p>Sun Siyam Iru Veli · Premium Ocean View Suite</p>
+      <div class="trip-details">
+        <div class="trip-detail">
+          <span class="trip-detail-label">Check In</span>
+          <span class="trip-detail-val">13 Mar 2026</span>
+        </div>
+        <div class="trip-detail">
+          <span class="trip-detail-label">Check Out</span>
+          <span class="trip-detail-val">18 Mar 2026</span>
+        </div>
+        <div class="trip-detail">
+          <span class="trip-detail-label">Guests</span>
+          <span class="trip-detail-val">2 Adults</span>
+        </div>
+        <div class="trip-detail">
+          <span class="trip-detail-label">Total Paid</span>
+          <span class="trip-detail-val">$1,600</span>
+        </div>
+      </div>
+      <a href="#" class="trip-cta">View Booking Details →</a>
+    </div>
+
+    <!-- Middle Row -->
+    <div class="grid-2">
+
+      <!-- My Bookings -->
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">My Bookings</div>
+            <div class="card-subtitle">All upcoming reservations</div>
+          </div>
+          <a href="#" class="card-action">View All</a>
+        </div>
+        <div class="card-body">
+          <div class="booking-item">
+            <div class="booking-img">🏝️</div>
+            <div class="booking-info">
+              <div class="booking-name">Maldives Water Villa</div>
+              <div class="booking-dates">13 Mar – 18 Mar · 2 Guests</div>
+            </div>
+            <div class="booking-price">$1,600 <span>5 nights</span></div>
+            <span class="badge badge-success">Confirmed</span>
+          </div>
+          <div class="booking-item">
+            <div class="booking-img">🏔️</div>
+            <div class="booking-info">
+              <div class="booking-name">Swiss Alps Chalet</div>
+              <div class="booking-dates">02 Apr – 06 Apr · 3 Guests</div>
+            </div>
+            <div class="booking-price">$2,240 <span>4 nights</span></div>
+            <span class="badge badge-warning">Pending</span>
+          </div>
+          <div class="booking-item">
+            <div class="booking-img">🌅</div>
+            <div class="booking-info">
+              <div class="booking-name">Santorini Cliffside Suite</div>
+              <div class="booking-dates">18 May – 23 May · 2 Guests</div>
+            </div>
+            <div class="booking-price">$1,850 <span>5 nights</span></div>
+            <span class="badge badge-info">Upcoming</span>
+          </div>
+          <div class="booking-item">
+            <div class="booking-img">🌿</div>
+            <div class="booking-info">
+              <div class="booking-name">Bali Jungle Retreat</div>
+              <div class="booking-dates">10 Jun – 14 Jun · 2 Guests</div>
+            </div>
+            <div class="booking-price">$960 <span>4 nights</span></div>
+            <span class="badge badge-neutral">Draft</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div style="display:flex;flex-direction:column;gap:24px;">
+
+        <!-- Quick Actions -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Quick Actions</div>
+          </div>
+          <div class="card-body">
+            <div class="quick-actions">
+              <a href="#" class="q-action">
+                <span class="q-action-icon">🔍</span>
+                <span class="q-action-label">Find Rooms</span>
+              </a>
+              <a href="#" class="q-action">
+                <span class="q-action-icon">📅</span>
+                <span class="q-action-label">Calendar</span>
+              </a>
+              <a href="#" class="q-action">
+                <span class="q-action-icon">🗺️</span>
+                <span class="q-action-label">Explore</span>
+              </a>
+              <a href="#" class="q-action">
+                <span class="q-action-icon">💬</span>
+                <span class="q-action-label">Support</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notifications -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Notifications</div>
+              <div class="card-subtitle">2 unread messages</div>
+            </div>
+            <a href="#" class="card-action">All</a>
+          </div>
+          <div class="card-body">
+            <div class="notif-item">
+              <div class="notif-icon" style="background:rgba(76,175,125,0.1);">✅</div>
+              <div>
+                <div class="notif-text"><strong>Booking Confirmed!</strong> Your Maldives villa is all set.</div>
+                <div class="notif-time">2 hours ago</div>
+              </div>
+            </div>
+            <div class="notif-item">
+              <div class="notif-icon" style="background:rgba(200,169,126,0.1);">🎁</div>
+              <div>
+                <div class="notif-text">You have a <strong>10% loyalty discount</strong> ready to use.</div>
+                <div class="notif-time">Yesterday</div>
+              </div>
+            </div>
+            <div class="notif-item">
+              <div class="notif-icon" style="background:rgba(74,144,217,0.1);">📬</div>
+              <div>
+                <div class="notif-text">New message from <strong>Swiss Alps Chalet</strong> host.</div>
+                <div class="notif-time">2 days ago</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bottom Row -->
+    <div class="grid-2">
+
+      <!-- Local Experiences -->
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Local Experiences</div>
+            <div class="card-subtitle">Near your next destination</div>
+          </div>
+          <a href="#" class="card-action">Browse All</a>
+        </div>
+        <div class="card-body" style="display:flex;flex-direction:column;gap:10px;">
+          <div class="experience-card">
+            <div class="exp-icon">🤿</div>
+            <div class="exp-info">
+              <div class="exp-name">Coral Reef Diving Tour</div>
+              <div class="exp-meta">Maldives · 3 hrs · Guide included</div>
+            </div>
+            <div class="exp-price">$89</div>
+          </div>
+          <div class="experience-card">
+            <div class="exp-icon">🛶</div>
+            <div class="exp-info">
+              <div class="exp-name">Sunset Kayaking</div>
+              <div class="exp-meta">Maldives · 2 hrs · Small group</div>
+            </div>
+            <div class="exp-price">$55</div>
+          </div>
+          <div class="experience-card">
+            <div class="exp-icon">🍽️</div>
+            <div class="exp-info">
+              <div class="exp-name">Private Beach Dinner</div>
+              <div class="exp-meta">Maldives · 2.5 hrs · Couple</div>
+            </div>
+            <div class="exp-price">$145</div>
+          </div>
+          <div class="experience-card">
+            <div class="exp-icon">🌿</div>
+            <div class="exp-info">
+              <div class="exp-name">Island Spa & Wellness</div>
+              <div class="exp-meta">Maldives · 1.5 hrs · Relaxation</div>
+            </div>
+            <div class="exp-price">$120</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wishlist -->
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Wishlist</div>
+            <div class="card-subtitle">Saved for later</div>
+          </div>
+          <a href="#" class="card-action">View All</a>
+        </div>
+        <div class="card-body">
+          <div class="wishlist-row">
+            <div class="wl-img">🏯</div>
+            <div class="wl-info">
+              <div class="wl-name">Kyoto Ryokan Suite</div>
+              <div class="wl-loc">Kyoto, Japan</div>
+            </div>
+            <div class="wl-price">$290/night</div>
+          </div>
+          <div class="wishlist-row">
+            <div class="wl-img">🏔️</div>
+            <div class="wl-info">
+              <div class="wl-name">Patagonia Mountain Lodge</div>
+              <div class="wl-loc">El Chaltén, Argentina</div>
+            </div>
+            <div class="wl-price">$185/night</div>
+          </div>
+          <div class="wishlist-row">
+            <div class="wl-img">🌴</div>
+            <div class="wl-info">
+              <div class="wl-name">Tulum Eco Retreat</div>
+              <div class="wl-loc">Tulum, Mexico</div>
+            </div>
+            <div class="wl-price">$160/night</div>
+          </div>
+          <div class="wishlist-row">
+            <div class="wl-img">🗼</div>
+            <div class="wl-info">
+              <div class="wl-name">Parisian Rooftop Loft</div>
+              <div class="wl-loc">Paris, France</div>
+            </div>
+            <div class="wl-price">$340/night</div>
+          </div>
+          <div class="wishlist-row">
+            <div class="wl-img">🌊</div>
+            <div class="wl-info">
+              <div class="wl-name">Amalfi Cliffside Villa</div>
+              <div class="wl-loc">Positano, Italy</div>
+            </div>
+            <div class="wl-price">$410/night</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html> {% endcomment %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vacation Rental — My Dashboard</title>
+  <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     NAVBAR
+════════════════════════════════════════ -->
+<nav class="navbar">
+  <a href="#" class="nav-logo">Vacation<span>Rental</span></a>
+
+  <ul class="nav-links">
+    <li><a href="{% url "user_dashboard" %}" class="active">Home</a></li>
+    <li><a href="#">My Bookings <span class="nav-badge-pill"></span></a></li>
+    <li><a href="#">Wishlist</a></li>
+    <li><a href="#">Local Experiences</a></li>
+    {% comment %} <li><a href="#">Notifications</a></li> {% endcomment %}
+    {% comment %} <li><a href="#">Spa &amp; Wellness</a></li>
+    <li><a href="#">Loyalty</a></li> {% endcomment %}
+  </ul>
+
+  <div class="nav-right">
+    
+    <div class="nav-icon-btn">💬</div>
+    <a href="#" class="nav-user-chip">
+      <img src="https://cdn.prod.website-files.com/646c59363e244b8b05ff0d1c/646df3db3ce3ea4eea5e994a_testimonial-image-1.jpg" alt="Mary Grace">
+      <div>
+        <div class="nav-chip-name">Chhaya</div>
+        <div class="nav-chip-role">✦ Gold Member</div>
+      </div>
+    </a>
+  </div>
+</nav>
+
+
+<!-- ═══════════════════════════════════════
+     PAGE CONTENT
+════════════════════════════════════════ -->
+<div class="page">
+
+  <!-- ─────────────────────────────────
+       PROFILE HERO
+  ────────────────────────────────── -->
+  <div class="profile-hero">
+    <div class="ph-avatar">
+      <img src="https://cdn.prod.website-files.com/646c59363e244b8b05ff0d1c/646df3db3ce3ea4eea5e994a_testimonial-image-1.jpg" alt="Mary Grace">
+    </div>
+    <div class="ph-info">
+      <h2>Chhaya</h2>
+      <p>chhaya@email.com</p>
+      <span class="ph-badge">
+        <span class="ph-badge-dot"></span>
+        Gold Member · Member since Jan 2023
+      </span>
+    </div>
+    <div class="ph-actions">
+      <a href="#" class="btn btn-outline-white btn-sm">Edit Profile</a>
+      <a href="#" class="btn btn-blue btn-sm">Book a Property ↗</a>
+    </div>
+  </div>
+
+
+  <!-- ─────────────────────────────────
+       QUICK ACTIONS
+  ────────────────────────────────── -->
+  <div class="quick-row">
+    <a href="#" class="qa"><div class="qa-icon">🛏</div><span class="qa-label">New Booking</span></a>
+    <a href="#" class="qa"><div class="qa-icon">🔑</div><span class="qa-label">Check In</span></a>
+    <a href="#" class="qa"><div class="qa-icon">⭐</div><span class="qa-label">Review</span></a>
+    <a href="#" class="qa"><div class="qa-icon">💆</div><span class="qa-label">Book Spa</span></a>
+  </div>
+
+
+  <!-- ─────────────────────────────────
+       STAT CARDS
+  ────────────────────────────────── -->
+  <div class="stats-row">
+
+    <div class="stat-card c-blue">
+      <div class="stat-top">
+        <div class="stat-icon">🛏</div>
+        <span class="stat-badge up">↑ 12%</span>
+      </div>
+      <div class="stat-value">14</div>
+      <div class="stat-label">Total Stays</div>
+    </div>
+
+    <div class="stat-card c-gold">
+      <div class="stat-top">
+        <div class="stat-icon">⭐</div>
+        <span class="stat-badge up">↑ 8%</span>
+      </div>
+      <div class="stat-value">4,820</div>
+      <div class="stat-label">Loyalty Points</div>
+    </div>
+
+    <div class="stat-card c-green">
+      <div class="stat-top">
+        <div class="stat-icon">💰</div>
+        <span class="stat-badge down">↓ 3%</span>
+      </div>
+      <div class="stat-value">$6,240</div>
+      <div class="stat-label">Total Spent</div>
+    </div>
+
+    <div class="stat-card c-dark">
+      <div class="stat-top">
+        <div class="stat-icon">📅</div>
+        <span class="stat-badge up">↑ 1</span>
+      </div>
+      <div class="stat-value">3</div>
+      <div class="stat-label">Upcoming Bookings</div>
+    </div>
+
+  </div>
+
+
+  <!-- ─────────────────────────────────
+       MID ROW: Bookings + Calendar
+  ────────────────────────────────── -->
+  <div class="mid-row">
+
+    <!-- Upcoming Bookings -->
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Upcoming Bookings</div>
+          <div class="card-sub">Your next 3 reservations</div>
+        </div>
+        <a href="#" class="card-link">View All</a>
+      </div>
+      <div class="card-body" style="padding: 0 24px 4px;">
+        <table class="btable">
+          <thead>
+            <tr>
+              <th>Room</th>
+              <th>Check-in</th>
+              <th>Check-out</th>
+              <th>Amount</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="broom">
+                  <img src="https://cdn.prod.website-files.com/646dc5789befdc07ef4ed24d/646dc5c5024f9988ecd6e02d_room-image-1.jpg" alt="Double Room">
+                  <div><div class="broom-name">Double Room</div><div class="broom-type">Ocean View · 60m²</div></div>
+                </div>
+              </td>
+              <td>Mar 18, 2026</td><td>Mar 22, 2026</td>
+              <td><strong>$1,280</strong></td>
+              <td><span class="pill pill-green">● Confirmed</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="broom">
+                  <img src="https://cdn.prod.website-files.com/646dc5789befdc07ef4ed24d/646dc63fc3a40938a4449990_room-image-3.jpg" alt="Premium Room">
+                  <div><div class="broom-name">Premium Room</div><div class="broom-type">Garden View · 44m²</div></div>
+                </div>
+              </td>
+              <td>Apr 5, 2026</td><td>Apr 8, 2026</td>
+              <td><strong>$960</strong></td>
+              <td><span class="pill pill-yellow">● Pending</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="broom">
+                  <img src="https://cdn.prod.website-files.com/646dc5789befdc07ef4ed24d/646dc60128c11bc7c6e07bfd_room-image-2.jpg" alt="Luxury Room">
+                  <div><div class="broom-name">Luxury Room</div><div class="broom-type">Beach View · 55m²</div></div>
+                </div>
+              </td>
+              <td>May 1, 2026</td><td>May 5, 2026</td>
+              <td><strong>$1,600</strong></td>
+              <td><span class="pill pill-blue">● Confirmed</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Stay Calendar -->
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Stay Calendar</div>
+          <div class="card-sub">March 2026</div>
+        </div>
+        <div class="cal-nav"><button>‹</button><button>›</button></div>
+      </div>
+      <div class="card-body">
+        <div class="cal-grid">
+          <div class="cal-dow">Su</div><div class="cal-dow">Mo</div><div class="cal-dow">Tu</div>
+          <div class="cal-dow">We</div><div class="cal-dow">Th</div><div class="cal-dow">Fr</div><div class="cal-dow">Sa</div>
+          <div class="cal-day dim">23</div><div class="cal-day dim">24</div><div class="cal-day dim">25</div>
+          <div class="cal-day dim">26</div><div class="cal-day dim">27</div><div class="cal-day dim">28</div><div class="cal-day">1</div>
+          <div class="cal-day">2</div><div class="cal-day">3</div><div class="cal-day">4</div>
+          <div class="cal-day">5</div><div class="cal-day">6</div><div class="cal-day">7</div><div class="cal-day">8</div>
+          <div class="cal-day">9</div><div class="cal-day">10</div><div class="cal-day today">11</div>
+          <div class="cal-day">12</div><div class="cal-day">13</div><div class="cal-day">14</div><div class="cal-day">15</div>
+          <div class="cal-day">16</div><div class="cal-day">17</div>
+          <div class="cal-day booked">18</div><div class="cal-day booked">19</div><div class="cal-day booked">20</div>
+          <div class="cal-day booked">21</div><div class="cal-day booked">22</div>
+          <div class="cal-day">23</div><div class="cal-day">24</div><div class="cal-day">25</div>
+          <div class="cal-day">26</div><div class="cal-day">27</div><div class="cal-day">28</div><div class="cal-day">29</div>
+          <div class="cal-day">30</div><div class="cal-day">31</div>
+          <div class="cal-day dim">1</div><div class="cal-day dim">2</div><div class="cal-day dim">3</div>
+          <div class="cal-day dim">4</div><div class="cal-day dim">5</div>
+        </div>
+        <div class="stay-list">
+          <div class="stay-item">
+            <div class="stay-dot" style="background:var(--blue);"></div>
+            <div><div class="stay-name">Double Room – Ocean View</div><div class="stay-dates">Mar 18 – Mar 22, 2026</div></div>
+            <span class="stay-badge">4 nights</span>
+          </div>
+          <div class="stay-item">
+            <div class="stay-dot" style="background:var(--gold);"></div>
+            <div><div class="stay-name">Premium Room – Garden View</div><div class="stay-dates">Apr 5 – Apr 8, 2026</div></div>
+            <span class="stay-badge">3 nights</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /mid-row -->
+
+
+  <!-- ─────────────────────────────────
+       BOTTOM ROW
+  ────────────────────────────────── -->
+  <div class="bottom-row">
+
+    <!-- Loyalty Card -->
+    <div class="loyalty">
+      <div class="loyalty-tier"><span class="loyalty-tier-dot"></span> Gold Member</div>
+      <div class="loyalty-pts">4,820</div>
+      <div class="loyalty-pts-lbl">Loyalty Points</div>
+      <div class="loyalty-bar-track"><div class="loyalty-bar-fill"></div></div>
+      <div class="loyalty-bar-lbls">
+        <span>4,820 pts</span>
+        <span><strong>5,180 pts</strong> to Platinum</span>
+      </div>
+      <div style="margin-top:18px;">
+        <a href="#" class="btn btn-blue btn-sm">Redeem Points ↗</a>
+      </div>
+      <div class="spend-chart">
+        <div class="spend-chart-lbl">Monthly Spend</div>
+        <div class="bars">
+          <div class="bar-wrap"><div class="bar" style="height:44px;" data-v="$640"></div><div class="bar-lbl">Oct</div></div>
+          <div class="bar-wrap"><div class="bar" style="height:60px;" data-v="$860"></div><div class="bar-lbl">Nov</div></div>
+          <div class="bar-wrap"><div class="bar" style="height:32px;" data-v="$480"></div><div class="bar-lbl">Dec</div></div>
+          <div class="bar-wrap"><div class="bar" style="height:72px;" data-v="$1,040"></div><div class="bar-lbl">Jan</div></div>
+          <div class="bar-wrap"><div class="bar" style="height:48px;" data-v="$700"></div><div class="bar-lbl">Feb</div></div>
+          <div class="bar-wrap"><div class="bar highlight" style="height:64px;" data-v="$920"></div><div class="bar-lbl" style="color:#aaa;">Mar</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Activity -->
+    <div class="card">
+      <div class="card-header">
+        <div><div class="card-title">Recent Activity</div><div class="card-sub">Latest account actions</div></div>
+        <a href="#" class="card-link">See All</a>
+      </div>
+      <div class="card-body" style="padding-top:6px;">
+        <div class="act-list">
+          <div class="act-item">
+            <div class="act-icon ai-blue">✅</div>
+            <div style="flex:1;"><div class="act-title">Booking Confirmed</div><div class="act-desc">Double Room · Mar 18–22</div></div>
+            <div class="act-time">2h ago</div>
+          </div>
+          <div class="act-item">
+            <div class="act-icon ai-gold">⭐</div>
+            <div style="flex:1;"><div class="act-title">Points Earned</div><div class="act-desc">+320 pts from last stay</div></div>
+            <div class="act-time">3d ago</div>
+          </div>
+          <div class="act-item">
+            <div class="act-icon ai-green">💳</div>
+            <div style="flex:1;"><div class="act-title">Payment Processed</div><div class="act-desc">$960 · Premium Room</div></div>
+            <div class="act-time">5d ago</div>
+          </div>
+          <div class="act-item">
+            <div class="act-icon ai-blue">🛏</div>
+            <div style="flex:1;"><div class="act-title">Checked Out</div><div class="act-desc">Classic Room · Feb 22–25</div></div>
+            <div class="act-time">2w ago</div>
+          </div>
+          <div class="act-item">
+            <div class="act-icon ai-red">🔔</div>
+            <div style="flex:1;"><div class="act-title">Special Offer</div><div class="act-desc">20% off Spa package this weekend</div></div>
+            <div class="act-time">3w ago</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Saved Rooms -->
+    <div class="card">
+      <div class="card-header">
+        <div><div class="card-title">Saved Rooms</div><div class="card-sub">Your wishlist</div></div>
+        <a href="#" class="card-link">Browse More</a>
+      </div>
+      <div class="card-body" style="padding-top:10px;">
+        <div class="saved-list">
+          <div class="saved-item">
+            <img class="saved-thumb" src="https://cdn.prod.website-files.com/646dc5789befdc07ef4ed24d/646dc6e1d8a3d092c086f6c6_room-image-6.jpg" alt="Luxury">
+            <div style="flex:1;"><div class="saved-name">Luxury Room</div><div class="saved-meta">Beach View · 55m² · King Bed</div></div>
+            <div class="saved-price">$320<small>/night</small></div>
+          </div>
+          <div class="saved-item">
+            <img class="saved-thumb" src="https://cdn.prod.website-files.com/646dc5789befdc07ef4ed24d/646dc6b02bb197206726176d_room-image-5.jpg" alt="Budget">
+            <div style="flex:1;"><div class="saved-name">Budget Room</div><div class="saved-meta">Lake View · 65m² · Murphy Bed</div></div>
+            <div class="saved-price">$320<small>/night</small></div>
+          </div>
+          <div class="saved-item">
+            <img class="saved-thumb" src="https://cdn.prod.website-files.com/646dc5789befdc07ef4ed24d/646dc67d08ab190080a9e53c_room-image-4.jpg" alt="Classic">
+            <div style="flex:1;"><div class="saved-name">Classic Room</div><div class="saved-meta">Sunset View · 35m² · Poster Bed</div></div>
+            <div class="saved-price">$320<small>/night</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /bottom-row -->
+
+</div><!-- /page -->
+
+<script>
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelectorAll('.nav-links a').forEach(x => x.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
